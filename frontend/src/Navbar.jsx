@@ -34,7 +34,7 @@ export default function Navbar() {
         {/* Logo */}
         <Link to="/" style={{ display: "flex", alignItems: "center", textDecoration: "none" }}>
           <img
-            src="/src/assets/logo.png"
+            src="/logo.png"
             alt="Upna Loan"
             style={{ height: 70, objectFit: "contain" }}
           />

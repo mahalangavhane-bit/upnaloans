@@ -233,7 +233,7 @@ export default function Footer() {
       }}>
         {/* Logo */}
         <div style={{ display: "flex", justifyContent: "center", marginBottom: 24 }}>
-          <img src="/src/assets/logo.png" alt="Upna Loan" style={{ height: 70, objectFit: "contain" }} />
+          <img src="/logo.png" alt="Upna Loan" style={{ height: 70, objectFit: "contain" }} />
         </div>
 
         {/* Address */}
