@@ -31,7 +31,7 @@ export const globalStyles = `
 
   /* SECTION COMMONS */
   .section { padding: 80px 0; }
-  .section-inner { padding: 0 32px; }
+  .section-inner { padding: 0 64px; }
   .section-label { display: inline-block; background: var(--yellow-light); color: #92400e; padding: 4px 12px; border-radius: 6px; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .5px; margin-bottom: 12px; border: 1px solid #fed7aa; }
   .section-title { font-family: 'Sora', sans-serif; font-size: 32px; font-weight: 700; color: var(--brown-dark); margin-bottom: 10px; line-height: 1.25; }
   .section-sub { font-size: 15px; color: var(--muted); max-width: 580px; line-height: 1.7; margin-bottom: 48px; }
@@ -40,7 +40,7 @@ export const globalStyles = `
   .hero { background: white; padding: 80px 0 70px; position: relative; overflow: hidden; }
   .hero::before { content: ''; position: absolute; top: -120px; right: -120px; width: 520px; height: 520px; border-radius: 50%; background: radial-gradient(circle, rgba(249,115,22,.12) 0%, transparent 70%); pointer-events: none; }
   .hero::after  { content: ''; position: absolute; bottom: -80px; left: -80px; width: 360px; height: 360px; border-radius: 50%; background: radial-gradient(circle, rgba(234,179,8,.1) 0%, transparent 70%); pointer-events: none; }
-  .hero-inner { padding: 0 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+  .hero-inner { padding: 0 64px; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
   .hero-tag { display: inline-flex; align-items: center; gap: 6px; background: rgba(249,115,22,.12); color: var(--orange-dark); padding: 6px 14px; border-radius: 20px; font-size: 12.5px; font-weight: 600; letter-spacing: .5px; margin-bottom: 22px; text-transform: uppercase; }
   .hero h1 { font-family: 'Sora', sans-serif; font-size: 46px; font-weight: 800; line-height: 1.15; color: var(--brown-dark); margin-bottom: 20px; }
   .hero h1 span { background: linear-gradient(90deg, #f97316, #eab308); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
@@ -73,7 +73,7 @@ export const globalStyles = `
 
   /* PRODUCTS */
   .products-section { background: var(--gray-bg); }
-  .products-grid { display: grid; grid-template-columns: repeat(8, 1fr); gap: 14px; }
+  .products-grid { display: grid; grid-template-columns: repeat(8, 1fr); gap: 14px; padding: 0 64px; }
   .product-card { background: white; border: 1.5px solid #fed7aa; border-radius: 14px; padding: 18px 10px; text-align: center; cursor: pointer; transition: all .2s; display: flex; flex-direction: column; align-items: center; gap: 10px; }
   .product-card:hover { border-color: var(--orange); transform: translateY(-4px); box-shadow: 0 8px 24px rgba(249,115,22,.12); }
   .product-icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 22px; }
@@ -81,7 +81,7 @@ export const globalStyles = `
 
   /* BANKS */
   .banks-section { background: white; }
-  .banks-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .banks-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; padding: 0 64px; }
   .bank-card { border: 1.5px solid #fed7aa; border-radius: 16px; padding: 22px; transition: all .2s; cursor: pointer; position: relative; }
   .bank-card:hover { border-color: var(--orange); box-shadow: 0 6px 24px rgba(249,115,22,.12); }
   .bank-card.featured { border-color: var(--orange); }
@@ -103,7 +103,7 @@ export const globalStyles = `
 
   /* EMI CALCULATOR */
   .calc-section { background: var(--gray-bg); }
-  .calc-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: start; }
+  .calc-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: start; padding: 0 64px; }
   .calc-box { background: white; border-radius: 20px; padding: 36px; box-shadow: 0 4px 24px rgba(249,115,22,.08); border: 1.5px solid #fed7aa; }
   .calc-field { margin-bottom: 28px; }
   .calc-field-label { display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 14px; font-weight: 500; }

@@ -1,7 +1,6 @@
 // Navbar.jsx
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { LOGO_SRC } from "./logoData";
 
 const navLinks = [
   { label: "Home",           to: "/"               },
@@ -17,7 +16,7 @@ export default function Navbar() {
 
   return (
     <nav style={{
-      background: '#2d1063',
+      background: '#46208d',
       position: "sticky",
       top: 0,
       zIndex: 1000,
@@ -35,9 +34,9 @@ export default function Navbar() {
         {/* Logo */}
         <Link to="/" style={{ display: "flex", alignItems: "center", textDecoration: "none" }}>
           <img
-            src={LOGO_SRC}
+            src="/src/assets/logo.png"
             alt="Upna Loan"
-            style={{ height: 40, objectFit: "contain" }}
+            style={{ height: 70, objectFit: "contain" }}
           />
         </Link>
 
@@ -63,8 +62,8 @@ export default function Navbar() {
                     paddingBottom: 2,
                   }}
                   onMouseEnter={e => e.currentTarget.style.color = "#f97316"}
-                  onMouseLeave={e => e.currentTarget.style.color = isActive ? "#f97316" : "#1a1a1a"}
-                >{link.label}</Link>
+                  onMouseLeave={e => e.currentTarget.style.color = isActive ? "#f97316" : "white"}
+>{link.label}</Link>
               </li>
             );
           })}
@@ -103,7 +102,7 @@ export default function Navbar() {
           }}
         >
           {[0, 1, 2].map(i => (
-            <span key={i} style={{ width: 24, height: 2, background: "#1a1a1a", display: "block", borderRadius: 2 }} />
+            <span key={i} style={{ width: 24, height: 2, background: "white", display: "block", borderRadius: 2 }} />
           ))}
         </button>
       </div>
@@ -122,7 +121,7 @@ export default function Navbar() {
               onClick={() => setMenuOpen(false)}
               style={{
                 fontSize: 15, fontWeight: 600,
-                color: pathname === link.to ? "#f97316" : "#1a1a1a",
+                color: pathname === link.to ? "#f97316" : "white",
                 textDecoration: "none",
                 fontFamily: "'Sora', sans-serif"
               }}

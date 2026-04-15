@@ -8,6 +8,7 @@ import WhyChooseUs     from "../WhyChooseUs";
 import CalculatorTools from "../CalculatorTools";
 import HowItWorks      from "../HowItWorks";
 import Testimonials    from "../Testimonials";
+import AboutWorkSection from "../AboutWorkSection";
 import CtaBanner       from "../CtaBanner";
 
 export default function Home() {
@@ -22,6 +23,7 @@ export default function Home() {
       <CalculatorTools />
       <HowItWorks />
       <Testimonials />
+      <AboutWorkSection />
       <CtaBanner />
     </>
   );

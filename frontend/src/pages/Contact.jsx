@@ -6,7 +6,28 @@ export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
 
   const handle = e => setForm(f => ({ ...f, [e.target.name]: e.target.value }));
-  const submit  = e => { e.preventDefault(); setSubmitted(true); };
+  const submit  = async (e) => 
+    { 
+      e.preventDefault();  
+      try{
+        const res = await fetch("http://localhost:5000/api/contact",{
+          method : "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(form)
+        });
+        const data = await res.json();
+        if (res.ok){
+          setSubmitted(true);
+          setForm({ name: "", email:"",phone:"",subject:"Home Loan", message:""});
+        }else {
+          alert(data.message || "Something went wrong");
+        }
+      }catch(error){
+        console.log(error);
+        alert("Server error");
+      }};
 
   const inputStyle = {
     width: "100%", height: 44, border: "1.5px solid #fed7aa", borderRadius: 8,

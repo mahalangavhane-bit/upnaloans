@@ -1,20 +1,52 @@
 // CalculatorTools.jsx
+import { useNavigate } from "react-router-dom"
 const toolsData = [
   {
     icon: "🧮", title: "Loan EMI Calculators", headClass: "tool-head-emi",
-    items: ["Personal Loan EMI Calculator", "Business Loan EMI Calculator", "Home Loan EMI Calculator", "Mudra Loan EMI Calculator"],
-  },
+    items: [
+      {
+      name: "Personal Loan EMI Calculator",
+      path:"/calculator/personal-loan"},
+      { name: "Business Loan EMI Calculator",
+        path:"/calculator/business-loan"},
+         { name:"Home Loan EMI Calculator",
+          path:"/calculator/home-loan"},
+          {
+           name:"Mudra Loan EMI Calculator",
+           path:"/calculator/mudra-loan"},
+          ],
+        },
   {
     icon: "📊", title: "Eligibility Calculators", headClass: "tool-head-elig",
-    items: ["Personal Loan Eligibility", "Home Loan Eligibility", "Personal Loan Prepayment", "Home Loan Prepayment"],
+    items: [{
+      name: "Personal Loan Eligibility",
+      path: "/calculator/personal-eligibility"}, 
+     {name:"Home Loan Eligibility", 
+      path:"/calculator/home-eligibility"},
+      {name:"Personal Loan Prepayment", 
+        path:"/calculator/personal-prepayment"},
+        {name:"Home Loan Prepayment",
+          path:"/calculator/home-prepayment"
+        },],
   },
   {
     icon: "🪙", title: "Investment Calculators", headClass: "tool-head-inv",
-    items: ["Fixed Deposit Calculator", "Post Office FD Calculator", "GST Calculator", "NPS Calculator"],
+    items: [{
+      name:"Fixed Deposit Calculator",
+      path:"/calculator/fd"},
+      {name:"Post Office FD Calculator", 
+        path:"/calculator/post-office-fd"},
+        {name:"GST Calculator",
+          path:"/calculator/gst"
+        },
+         {name:"NPS Calculator",
+          path:"/calculator/nps"
+         },],
   },
 ];
 
 export default function CalculatorTools() {
+  const navigate = useNavigate();
   return (
     <section className="section tools-section">
       <div className="section-inner">
@@ -30,8 +62,12 @@ export default function CalculatorTools() {
               </div>
               <div className="tool-body">
                 {t.items.map(item => (
-                  <div className="tool-item" key={item}>
-                    {item} <span style={{ opacity: .4 }}>›</span>
+                  <div className="tool-item" 
+                  key={item.name}
+                    onClick={() => navigate(item.path)}
+                    style={{ cursor: "pointer" }}
+                    >
+                    {item.name} <span style={{ opacity: .4 }}>›</span>
                   </div>
                 ))}
               </div>
