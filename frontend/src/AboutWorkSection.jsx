@@ -1,6 +1,9 @@
+// AboutWorkSection.jsx
+import { ArrowRight, Users, Briefcase, Target, Heart } from "lucide-react";
+
 export default function AboutWorkSection() {
     const containerStyle = {
-        padding: "80px 40px",
+        padding: "80px 32px",
         background: "linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%)",
         fontFamily: "'Segoe UI', system-ui, sans-serif",
     };
@@ -99,7 +102,7 @@ export default function AboutWorkSection() {
                 display: "flex",
                 gap: "40px",
                 flexWrap: "wrap",
-                maxWidth: "1200px",
+                maxWidth: "1280px",
                 margin: "0 auto",
             }}>
                 
@@ -119,9 +122,12 @@ export default function AboutWorkSection() {
                             alt="About Us"
                             style={imageStyle}
                         />
-                        <h2 style={titleStyle}>
-                            About Us
-                        </h2>
+                        <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "8px" }}>
+                            <Target size={20} color="#f97316" />
+                            <h2 style={titleStyle}>
+                                About Us
+                            </h2>
+                        </div>
                         <p style={descriptionStyle}>
                             Building India's most trusted financial marketplace with cutting-edge technology, transparent processes, and customer-first approach to make loans accessible to everyone.
                         </p>
@@ -131,7 +137,7 @@ export default function AboutWorkSection() {
                         onMouseOver={(e) => handleButtonHover(e, true)}
                         onMouseOut={(e) => handleButtonHover(e, false)}
                     >
-                        <span style={{ fontSize: "16px" }}>→</span>
+                        <ArrowRight size={16} />
                         KNOW MORE
                     </button>
                 </div>
@@ -148,13 +154,16 @@ export default function AboutWorkSection() {
                 >
                     <div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
                         <img 
-                            src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=400&h=200&fit=crop&crop=center"
+                            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&h=200&fit=crop&crop=center"
                             alt="Work With Us"
                             style={imageStyle}
                         />
-                        <h2 style={titleStyle}>
-                            Work With Us
-                        </h2>
+                        <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "8px" }}>
+                            <Briefcase size={20} color="#eab308" />
+                            <h2 style={titleStyle}>
+                                Work With Us
+                            </h2>
+                        </div>
                         <p style={descriptionStyle}>
                             Join our dynamic team and be part of India's fintech revolution. We're looking for passionate individuals who want to make a difference in millions of lives.
                         </p>
@@ -164,7 +173,7 @@ export default function AboutWorkSection() {
                         onMouseOver={(e) => handleButtonHover(e, true)}
                         onMouseOut={(e) => handleButtonHover(e, false)}
                     >
-                        <span style={{ fontSize: "16px" }}>→</span>
+                        <ArrowRight size={16} />
                         JOIN US
                     </button>
                 </div>

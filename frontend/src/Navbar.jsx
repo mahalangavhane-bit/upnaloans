@@ -27,8 +27,8 @@ export default function Navbar() {
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
-        padding: "0 32px",
-        height: 64,
+        padding: "0 40px",
+        height: 80,
         maxWidth: "100%",
       }}>
         {/* Logo */}
@@ -36,7 +36,7 @@ export default function Navbar() {
           <img
             src="/logo.png"
             alt="Upna Loan"
-            style={{ height: 70, objectFit: "contain" }}
+            style={{ height: 100, objectFit: "contain" }}
           />
         </Link>
 

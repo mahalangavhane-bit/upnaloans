@@ -1,4 +1,5 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
+import { Zap, TrendingDown, Lock, Handshake, BarChart2, CheckSquare, FileText, Rocket, MapPin, Building2, DollarSign, TrendingUp, Calendar, Star, Clock, CreditCard } from "lucide-react";
 
 const banks = [
   { name: "SBI Home Loan", logo: "SBI", rate: "8.50%", min: "8.40%", amount: "Rs.5Cr", color: "#22488C", processing: "0.35%", tenure: "30 yrs", prepayment: "Nil charges" },
@@ -82,7 +83,6 @@ function DonutChart({ principal, interest }) {
   const circ = 2 * Math.PI * r;
   const pDash = pPct * circ;
   const iDash = iPct * circ;
-  const iOffset = -pDash;
   return (
     <svg viewBox="0 0 180 180" style={{ width: 160, height: 160 }}>
       <circle cx={cx} cy={cy} r={r} fill="none" stroke="#e2e8f0" strokeWidth={stroke} />
@@ -106,7 +106,6 @@ export default function HLPCalc() {
   const [reduceTenure, setReduceTenure] = useState(true);
   const [openFaq, setOpenFaq] = useState(null);
 
-  // Calculate original loan details
   const monthlyRate = interestRate / 12 / 100;
   const totalMonths = tenure * 12;
   const originalEmi = monthlyRate === 0 ? loanAmount / totalMonths :
@@ -114,11 +113,9 @@ export default function HLPCalc() {
   const originalTotalAmount = originalEmi * totalMonths;
   const originalTotalInterest = originalTotalAmount - loanAmount;
 
-  // Calculate prepayment impact
   const prepaymentFee = (prepaymentAmount * prepaymentCharge) / 100;
   const netPrepaymentAmount = prepaymentAmount - prepaymentFee;
   
-  // Calculate remaining balance after prepayment
   let balance = loanAmount;
   for (let i = 1; i <= prepaymentMonth; i++) {
     const intPart = balance * monthlyRate;
@@ -128,24 +125,20 @@ export default function HLPCalc() {
   
   const remainingBalance = Math.max(0, balance - netPrepaymentAmount);
   
-  // Calculate new loan terms
   let newEmi, newTenure, newTotalInterest, newTotalAmount;
   
   if (remainingBalance <= 0) {
-    // Loan fully paid off
     newEmi = 0;
     newTenure = 0;
     newTotalInterest = 0;
     newTotalAmount = originalEmi * prepaymentMonth + prepaymentAmount;
   } else {
     if (reduceTenure) {
-      // Keep EMI same, reduce tenure
       newEmi = originalEmi;
       newTenure = Math.ceil(-Math.log(1 - (remainingBalance * monthlyRate) / newEmi) / Math.log(1 + monthlyRate));
       newTotalAmount = originalEmi * prepaymentMonth + newEmi * newTenure + prepaymentAmount;
       newTotalInterest = newTotalAmount - loanAmount;
     } else {
-      // Reduce EMI, keep tenure same
       const remainingMonths = totalMonths - prepaymentMonth;
       newTenure = remainingMonths;
       newEmi = (remainingBalance * monthlyRate * Math.pow(1 + monthlyRate, remainingMonths)) / (Math.pow(1 + monthlyRate, remainingMonths) - 1);
@@ -166,27 +159,11 @@ export default function HLPCalc() {
   return (
     <div style={{ fontFamily: "'Segoe UI', system-ui, sans-serif", background: "#f8fafc", minHeight: "100vh" }}>
 
-      {/* TOP NAV BAR */}
-      <div style={{ background: "#1e293b", padding: "0 32px", display: "flex", alignItems: "center", justifyContent: "space-between", height: 56 }}>
-        <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-          <div style={{ width: 30, height: 30, borderRadius: 8, background: "linear-gradient(135deg,#3b82f6,#2563eb)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-            <span style={{ color: "#fff", fontWeight: 700, fontSize: 13 }}>U</span>
-          </div>
-          <span style={{ color: "#fff", fontWeight: 700, fontSize: 16, letterSpacing: "-0.3px" }}>UpnaLoan</span>
-        </div>
-        <div style={{ display: "flex", gap: 24 }}>
-          {["Personal Loan", "Home Loan", "Car Loan", "Credit Cards", "Insurance"].map(t => (
-            <span key={t} style={{ fontSize: 13, color: "#94a3b8", cursor: "pointer", transition: "color 0.15s" }}
-              onMouseEnter={e => e.target.style.color = "#fff"} onMouseLeave={e => e.target.style.color = "#94a3b8"}>{t}</span>
-          ))}
-        </div>
-        <button style={{ background: "#2563eb", color: "#fff", border: "none", borderRadius: 8, padding: "8px 18px", fontSize: 13, fontWeight: 600, cursor: "pointer" }}>Apply Now</button>
-      </div>
-
       {/* HERO */}
       <div style={{
         background: "linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #1e293b 100%)",
-        padding: "52px 48px 60px", position: "relative", overflow: "hidden"
+        padding: "52px 48px 60px",
+        position: "relative", overflow: "hidden"
       }}>
         <div style={{ position: "absolute", right: 80, top: 20, width: 260, height: 260, borderRadius: "50%", background: "rgba(59,130,246,0.08)", pointerEvents: "none" }} />
         <div style={{ position: "absolute", right: 140, top: 60, width: 120, height: 120, borderRadius: "50%", background: "rgba(59,130,246,0.05)", pointerEvents: "none" }} />
@@ -219,9 +196,9 @@ export default function HLPCalc() {
       {/* BREADCRUMB */}
       <div style={{ background: "#fff", borderBottom: "1px solid #f1f5f9", padding: "10px 48px" }}>
         <span style={{ fontSize: 12, color: "#94a3b8" }}>Home</span>
-        <span style={{ fontSize: 12, color: "#cbd5e1", margin: "0 6px" }}>·</span>
+        <span style={{ fontSize: 12, color: "#cbd5e1", margin: "0 6px" }}>›</span>
         <span style={{ fontSize: 12, color: "#94a3b8" }}>Home Loan</span>
-        <span style={{ fontSize: 12, color: "#cbd5e1", margin: "0 6px" }}>·</span>
+        <span style={{ fontSize: 12, color: "#cbd5e1", margin: "0 6px" }}>›</span>
         <span style={{ fontSize: 12, color: "#2563eb", fontWeight: 500 }}>Prepayment Calculator</span>
       </div>
 
@@ -234,7 +211,7 @@ export default function HLPCalc() {
           <div style={{ flex: "1 1 380px", ...card }}>
             <h2 style={{ fontSize: 18, fontWeight: 700, color: "#1e293b", margin: "0 0 24px" }}>Loan Details</h2>
             <SliderInput label="Loan Amount" value={loanAmount} min={100000} max={10000000} step={50000}
-              onChange={setLoanAmount} prefix="Rs." formatFn={v => formatINR(v)} />
+              onChange={setLoanAmount} prefix="₹" formatFn={v => formatINR(v)} />
             <SliderInput label="Rate of Interest (p.a.)" value={interestRate} min={6} max={12} step={0.25}
               onChange={setInterestRate} suffix="%" />
             <SliderInput label="Loan Tenure" value={tenure} min={5} max={30} step={1}
@@ -242,7 +219,7 @@ export default function HLPCalc() {
             
             <h3 style={{ fontSize: 16, fontWeight: 700, color: "#1e293b", margin: "24px 0 16px" }}>Prepayment Details</h3>
             <SliderInput label="Prepayment Amount" value={prepaymentAmount} min={50000} max={loanAmount} step={50000}
-              onChange={setPrepaymentAmount} prefix="Rs." formatFn={v => formatINR(v)} />
+              onChange={setPrepaymentAmount} prefix="₹" formatFn={v => formatINR(v)} />
             <SliderInput label="Prepayment Month" value={prepaymentMonth} min={1} max={totalMonths} step={1}
               onChange={setPrepaymentMonth} suffix=" month" />
             <SliderInput label="Prepayment Charges" value={prepaymentCharge} min={0} max={5} step={0.5}
@@ -274,9 +251,10 @@ export default function HLPCalc() {
               </div>
             </div>
             
-            <div style={{ background: "#eff6ff", borderRadius: 12, padding: "14px 18px", marginTop: 20, border: "1px solid #bfdbfe" }}>
+            <div style={{ background: "#eff6ff", borderRadius: 12, padding: "14px 18px", marginTop: 20, border: "1px solid #bfdbfe", display: "flex", alignItems: "flex-start", gap: 8 }}>
+              <Zap size={14} color="#3b82f6" style={{ marginTop: 2, flexShrink: 0 }} />
               <p style={{ margin: 0, fontSize: 12, color: "#3b82f6", lineHeight: 1.6 }}>
-                ð¡ <strong>Tip:</strong> Most banks offer zero prepayment charges on home loans. Check with your lender for exact terms.
+                <strong>Tip:</strong> Most banks offer zero prepayment charges on home loans. Check with your lender for exact terms.
               </p>
             </div>
           </div>
@@ -288,13 +266,13 @@ export default function HLPCalc() {
             <div style={{ background: "linear-gradient(135deg,#16a34a,#22c55e)", borderRadius: 16, padding: "28px 28px 24px", color: "#fff" }}>
               <p style={{ margin: "0 0 4px", fontSize: 13, opacity: 0.8, fontWeight: 500 }}>Total Savings</p>
               <h1 style={{ margin: "0 0 20px", fontSize: 44, fontWeight: 800, letterSpacing: "-1px" }}>
-                Rs.{formatINR(Math.max(0, totalSavings))}
+                ₹{formatINR(Math.max(0, totalSavings))}
               </h1>
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 12 }}>
                 {[
-                  ["Interest Saved", `Rs.${formatINR(Math.max(0, originalTotalInterest - newTotalInterest))}`],
-                  ["Prepayment Fee", `Rs.${formatINR(prepaymentFee)}`],
-                  ["Net Savings", `Rs.${formatINR(Math.max(0, totalSavings))}`]
+                  ["Interest Saved", `₹${formatINR(Math.max(0, originalTotalInterest - newTotalInterest))}`],
+                  ["Prepayment Fee", `₹${formatINR(prepaymentFee)}`],
+                  ["Net Savings", `₹${formatINR(Math.max(0, totalSavings))}`]
                 ].map(([l, v]) => (
                   <div key={l} style={{ background: "rgba(255,255,255,0.12)", borderRadius: 10, padding: "10px 12px" }}>
                     <div style={{ fontSize: 10, opacity: 0.75, marginBottom: 3 }}>{l}</div>
@@ -309,10 +287,10 @@ export default function HLPCalc() {
               <h3 style={{ fontSize: 16, fontWeight: 700, color: "#1e293b", margin: "0 0 16px" }}>Before vs After Prepayment</h3>
               <div style={{ display: "grid", gap: 12 }}>
                 {[
-                  ["Monthly EMI", `Rs.${formatINR(originalEmi)}`, `Rs.${formatINR(newEmi)}`],
+                  ["Monthly EMI", `₹${formatINR(originalEmi)}`, `₹${formatINR(newEmi)}`],
                   ["Loan Tenure", `${tenure} years`, reduceTenure ? `${((prepaymentMonth + newTenure) / 12).toFixed(1)} years` : `${tenure} years`],
-                  ["Total Interest", `Rs.${formatINR(originalTotalInterest)}`, `Rs.${formatINR(newTotalInterest)}`],
-                  ["Total Amount", `Rs.${formatINR(originalTotalAmount)}`, `Rs.${formatINR(newTotalAmount)}`]
+                  ["Total Interest", `₹${formatINR(originalTotalInterest)}`, `₹${formatINR(newTotalInterest)}`],
+                  ["Total Amount", `₹${formatINR(originalTotalAmount)}`, `₹${formatINR(newTotalAmount)}`]
                 ].map(([label, before, after]) => (
                   <div key={label} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "12px", background: "#f8fafc", borderRadius: 8 }}>
                     <span style={{ fontSize: 13, fontWeight: 600, color: "#1e293b", width: 100 }}>{label}</span>
@@ -321,7 +299,7 @@ export default function HLPCalc() {
                         <div style={{ fontSize: 11, color: "#94a3b8" }}>Before</div>
                         <div style={{ fontSize: 13, fontWeight: 600, color: "#64748b" }}>{before}</div>
                       </div>
-                      <span style={{ fontSize: 16, color: "#cbd5e1" }}>×</span>
+                      <span style={{ fontSize: 16, color: "#cbd5e1" }}>→</span>
                       <div style={{ textAlign: "right" }}>
                         <div style={{ fontSize: 11, color: "#94a3b8" }}>After</div>
                         <div style={{ fontSize: 13, fontWeight: 600, color: "#2563eb" }}>{after}</div>
@@ -337,9 +315,9 @@ export default function HLPCalc() {
               <h3 style={{ fontSize: 16, fontWeight: 700, color: "#1e293b", margin: "0 0 16px" }}>Prepayment Benefits</h3>
               <div style={{ display: "grid", gap: 12 }}>
                 {[
-                  [emiReduced > 0 ? `Rs.${formatINR(emiReduced)}` : "No Change", "EMI Reduction"],
+                  [emiReduced > 0 ? `₹${formatINR(emiReduced)}` : "No Change", "EMI Reduction"],
                   [monthsSaved > 0 ? `${monthsSaved} months` : "No Change", "Tenure Reduction"],
-                  [`${(totalSavings/originalTotalInterest*100).toFixed(1)}%`, "Interest Saved"],
+                  [`${((totalSavings/originalTotalInterest)*100).toFixed(1)}%`, "Interest Saved"],
                   [prepaymentCharge === 0 ? "Zero Charges" : `${prepaymentCharge}%`, "Prepayment Charges"]
                 ].map(([value, label]) => (
                   <div key={label} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "10px 14px", background: "#f0fdf4", borderRadius: 8, border: "1px solid #bbf7d0" }}>
@@ -359,7 +337,7 @@ export default function HLPCalc() {
               <h2 style={{ fontSize: 22, fontWeight: 800, color: "#1e293b", margin: 0 }}>Best Home Loan Offers</h2>
               <p style={{ color: "#64748b", fontSize: 14, margin: "4px 0 0" }}>Compare prepayment charges from top banks & housing finance companies</p>
             </div>
-            <span style={{ fontSize: 13, color: "#2563eb", cursor: "pointer", fontWeight: 600 }}>View All Offers</span>
+            <span style={{ fontSize: 13, color: "#2563eb", cursor: "pointer", fontWeight: 600 }}>View All Offers →</span>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 18 }}>
             {banks.map((b, i) => (
@@ -402,6 +380,34 @@ export default function HLPCalc() {
           </div>
         </div>
 
+        {/* QUICK LINKS */}
+        <div style={{ ...card, marginTop: 36 }}>
+          <h2 style={{ fontSize: 18, fontWeight: 700, color: "#1e293b", margin: "0 0 18px" }}>Quick Links</h2>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))", gap: 12 }}>
+            {[
+              [BarChart2, "Interest Rates", "#eff6ff", "#2563eb"],
+              [CheckSquare, "Prepayment", "#f0fdf4", "#16a34a"],
+              [FileText, "Documents", "#fef9ec", "#d97706"],
+              [Rocket, "Apply Now", "#fdf2f8", "#9333ea"],
+              [Building2, "Top Banks", "#fff1f2", "#e11d48"],
+              [CreditCard, "EMI Calc", "#f0f9ff", "#0284c7"],
+            ].map(([Icon, label, bg, clr]) => (
+              <div key={label} style={{
+                background: bg, borderRadius: 12, padding: "16px 14px",
+                border: `1px solid ${clr}22`, cursor: "pointer", textAlign: "center",
+                transition: "transform 0.15s, box-shadow 0.15s"
+              }}
+                onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = "0 8px 20px rgba(0,0,0,0.08)"; }}
+                onMouseLeave={e => { e.currentTarget.style.transform = "none"; e.currentTarget.style.boxShadow = "none"; }}>
+                <div style={{ display: "flex", justifyContent: "center", marginBottom: 8 }}>
+                  <Icon size={22} color={clr} />
+                </div>
+                <div style={{ fontSize: 13, fontWeight: 600, color: clr }}>{label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* FAQ */}
         <div style={{ ...card, marginTop: 32 }}>
           <h2 style={{ fontSize: 20, fontWeight: 800, color: "#1e293b", margin: "0 0 20px" }}>Frequently Asked Questions</h2>
@@ -415,7 +421,7 @@ export default function HLPCalc() {
                   width: 28, height: 28, borderRadius: "50%", background: openFaq === i ? "#2563eb" : "#f1f5f9",
                   display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0,
                   fontSize: 16, color: openFaq === i ? "#fff" : "#64748b", fontWeight: 700, lineHeight: 1, transition: "all 0.2s"
-                }}>{openFaq === i ? "â" : "+"}</span>
+                }}>{openFaq === i ? "−" : "+"}</span>
               </div>
               {openFaq === i && (
                 <div style={{ padding: "0 0 16px", animation: "fadeIn 0.15s" }}>
@@ -445,7 +451,7 @@ export default function HLPCalc() {
             <button style={{
               background: "rgba(255,255,255,0.15)", color: "#fff", border: "2px solid rgba(255,255,255,0.4)",
               borderRadius: 12, padding: "14px 28px", fontSize: 15, fontWeight: 700, cursor: "pointer"
-            }}>Apply Now</button>
+            }}>Apply Now →</button>
           </div>
         </div>
       </div>
@@ -455,6 +461,9 @@ export default function HLPCalc() {
         input[type=range] { -webkit-appearance: none; appearance: none; height: 20px; background: transparent; }
         input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 18px; height: 18px; border-radius: 50%; background: #2563eb; border: 3px solid white; box-shadow: 0 1px 6px rgba(37,99,235,0.4); cursor: pointer; }
         * { box-sizing: border-box; }
+        @media (max-width: 768px) {
+          .calc-wrapper { padding: 0 16px !important; }
+        }
       `}</style>
     </div>
   );

@@ -1,4 +1,5 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
+import { Zap, TrendingDown, Lock, Handshake, BarChart2, CheckSquare, FileText, Rocket, MapPin, Building2, DollarSign, TrendingUp, Calendar, Star, Clock, CreditCard } from "lucide-react";
 
 const banks = [
   { name: "HDFC Bank", logo: "HDFC", rate: "10.50%", min: "10.75%", amount: "₹40L", color: "#004C8F", processing: "1%", tenure: "1-5 yrs" },
@@ -126,27 +127,11 @@ export default function PersonalLoanCalc() {
   return (
     <div style={{ fontFamily: "'Segoe UI', system-ui, sans-serif", background: "#f8fafc", minHeight: "100vh" }}>
 
-      {/* TOP NAV BAR */}
-      <div style={{ background: "#1e293b", padding: "0 32px", display: "flex", alignItems: "center", justifyContent: "space-between", height: 56 }}>
-        <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-          <div style={{ width: 30, height: 30, borderRadius: 8, background: "linear-gradient(135deg,#3b82f6,#2563eb)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-            <span style={{ color: "#fff", fontWeight: 700, fontSize: 13 }}>U</span>
-          </div>
-          <span style={{ color: "#fff", fontWeight: 700, fontSize: 16, letterSpacing: "-0.3px" }}>UpnaLoan</span>
-        </div>
-        <div style={{ display: "flex", gap: 24 }}>
-          {["Personal Loan", "Home Loan", "Car Loan", "Credit Cards", "Insurance"].map(t => (
-            <span key={t} style={{ color: "#94a3b8", fontSize: 13, cursor: "pointer", transition: "color 0.15s" }}
-              onMouseEnter={e => e.target.style.color = "#fff"} onMouseLeave={e => e.target.style.color = "#94a3b8"}>{t}</span>
-          ))}
-        </div>
-        <button style={{ background: "#2563eb", color: "#fff", border: "none", borderRadius: 8, padding: "8px 18px", fontSize: 13, fontWeight: 600, cursor: "pointer" }}>Apply Now</button>
-      </div>
-
       {/* HERO */}
       <div style={{
         background: "linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #1e293b 100%)",
-        padding: "52px 48px 60px", position: "relative", overflow: "hidden"
+        padding: "52px 48px 60px",
+        position: "relative", overflow: "hidden"
       }}>
         <div style={{ position: "absolute", right: 80, top: 20, width: 260, height: 260, borderRadius: "50%", background: "rgba(59,130,246,0.08)", pointerEvents: "none" }} />
         <div style={{ position: "absolute", right: 140, top: 60, width: 120, height: 120, borderRadius: "50%", background: "rgba(59,130,246,0.05)", pointerEvents: "none" }} />
@@ -199,9 +184,10 @@ export default function PersonalLoanCalc() {
               onChange={setInterestRate} suffix="%" />
             <SliderInput label="Loan Tenure" value={tenure} min={1} max={7} step={1}
               onChange={setTenure} suffix=" Yr" />
-            <div style={{ background: "#eff6ff", borderRadius: 12, padding: "14px 18px", marginTop: 8, border: "1px solid #bfdbfe" }}>
+            <div style={{ background: "#eff6ff", borderRadius: 12, padding: "14px 18px", marginTop: 8, border: "1px solid #bfdbfe", display: "flex", alignItems: "flex-start", gap: 8 }}>
+              <Zap size={14} color="#3b82f6" style={{ marginTop: 2, flexShrink: 0 }} />
               <p style={{ margin: 0, fontSize: 12, color: "#3b82f6", lineHeight: 1.6 }}>
-                💡 <strong>Tip:</strong> Higher tenure means lower EMI but more total interest. Use the comparison below to find the sweet spot.
+                <strong>Tip:</strong> Higher tenure means lower EMI but more total interest. Use the comparison below to find the sweet spot.
               </p>
             </div>
           </div>
@@ -347,13 +333,13 @@ export default function PersonalLoanCalc() {
           <h2 style={{ fontSize: 18, fontWeight: 700, color: "#1e293b", margin: "0 0 18px" }}>Quick Links</h2>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))", gap: 12 }}>
             {[
-              ["📊", "Interest Rates", "#eff6ff", "#2563eb"],
-              ["✅", "Eligibility Check", "#f0fdf4", "#16a34a"],
-              ["📄", "Documents Required", "#fef9ec", "#d97706"],
-              ["🚀", "Apply Instantly", "#fdf2f8", "#9333ea"],
-              ["📍", "Loan Status", "#fff1f2", "#e11d48"],
-              ["🏦", "Top Banks", "#f0f9ff", "#0284c7"],
-            ].map(([icon, label, bg, clr]) => (
+              [BarChart2, "Interest Rates", "#eff6ff", "#2563eb"],
+              [CheckSquare, "Eligibility Check", "#f0fdf4", "#16a34a"],
+              [FileText, "Documents Required", "#fef9ec", "#d97706"],
+              [Rocket, "Apply Instantly", "#fdf2f8", "#9333ea"],
+              [MapPin, "Loan Status", "#fff1f2", "#e11d48"],
+              [Building2, "Top Banks", "#f0f9ff", "#0284c7"],
+            ].map(([Icon, label, bg, clr]) => (
               <div key={label} style={{
                 background: bg, borderRadius: 12, padding: "16px 14px",
                 border: `1px solid ${clr}22`, cursor: "pointer", textAlign: "center",
@@ -361,7 +347,9 @@ export default function PersonalLoanCalc() {
               }}
                 onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = "0 8px 20px rgba(0,0,0,0.08)"; }}
                 onMouseLeave={e => { e.currentTarget.style.transform = "none"; e.currentTarget.style.boxShadow = "none"; }}>
-                <div style={{ fontSize: 24, marginBottom: 6 }}>{icon}</div>
+                <div style={{ display: "flex", justifyContent: "center", marginBottom: 8 }}>
+                  <Icon size={22} color={clr} />
+                </div>
                 <div style={{ fontSize: 13, fontWeight: 600, color: clr }}>{label}</div>
               </div>
             ))}
@@ -376,13 +364,15 @@ export default function PersonalLoanCalc() {
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 18 }}>
             {[
-              ["⚡", "Fast Approval", "Get instant approval decision in under 2 minutes with minimal documentation.", "#fefce8", "#ca8a04"],
-              ["📉", "Lowest Rates", "Access exclusive rates starting at 10.50% from 50+ partner lenders.", "#eff6ff", "#2563eb"],
-              ["🔒", "Secure Process", "Bank-grade encryption ensures your data and transactions stay protected.", "#f0fdf4", "#16a34a"],
-              ["🤝", "Trusted Lenders", "Partnered with RBI-regulated banks, NBFCs, and top financial institutions.", "#fdf4ff", "#9333ea"],
-            ].map(([icon, title, desc, bg, clr]) => (
+              [Zap, "Fast Approval", "Get instant approval decision in under 2 minutes with minimal documentation.", "#fefce8", "#ca8a04"],
+              [TrendingDown, "Lowest Rates", "Access exclusive rates starting at 10.50% from 50+ partner lenders.", "#eff6ff", "#2563eb"],
+              [Lock, "Secure Process", "Bank-grade encryption ensures your data and transactions stay protected.", "#f0fdf4", "#16a34a"],
+              [Handshake, "Trusted Lenders", "Partnered with RBI-regulated banks, NBFCs, and top financial institutions.", "#fdf4ff", "#9333ea"],
+            ].map(([Icon, title, desc, bg, clr]) => (
               <div key={title} style={{ background: bg, borderRadius: 14, padding: "22px 18px", border: `1px solid ${clr}18` }}>
-                <div style={{ fontSize: 30, marginBottom: 10 }}>{icon}</div>
+                <div style={{ marginBottom: 10 }}>
+                  <Icon size={24} color={clr} />
+                </div>
                 <h3 style={{ fontSize: 15, fontWeight: 700, color: "#1e293b", margin: "0 0 6px" }}>{title}</h3>
                 <p style={{ fontSize: 13, color: "#64748b", margin: 0, lineHeight: 1.6 }}>{desc}</p>
               </div>
@@ -411,23 +401,25 @@ export default function PersonalLoanCalc() {
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20, marginTop: 20, flexWrap: "wrap" }}>
           {[
             ["What Impacts Your Personal Loan EMI?", [
-              ["💰", "Loan Amount", "Higher principal → higher EMI"],
-              ["📈", "Interest Rate", "Higher rate → higher EMI"],
-              ["📅", "Loan Tenure", "Longer tenure → lower EMI"],
-              ["⭐", "Credit Score", "Better score → better rate"],
+              [DollarSign, "Loan Amount", "Higher principal → higher EMI", "#eff6ff"],
+              [TrendingUp, "Interest Rate", "Higher rate → higher EMI", "#eff6ff"],
+              [Calendar, "Loan Tenure", "Longer tenure → lower EMI", "#eff6ff"],
+              [Star, "Credit Score", "Better score → better rate", "#eff6ff"],
             ]],
             ["How to Reduce Your Personal Loan EMI?", [
-              ["📆", "Choose Longer Tenure", "Spreads cost over more months"],
-              ["📊", "Improve Credit Score", "Negotiate better interest rates"],
-              ["🤝", "Negotiate with Lender", "Ask for rate reduction"],
-              ["💳", "Make Prepayments", "Reduce outstanding principal early"],
+              [Clock, "Choose Longer Tenure", "Spreads cost over more months", "#eff6ff"],
+              [BarChart2, "Improve Credit Score", "Negotiate better interest rates", "#eff6ff"],
+              [Handshake, "Negotiate with Lender", "Ask for rate reduction", "#eff6ff"],
+              [CreditCard, "Make Prepayments", "Reduce outstanding principal early", "#eff6ff"],
             ]],
           ].map(([title, items]) => (
             <div key={title} style={{ ...card }}>
               <h3 style={{ fontSize: 16, fontWeight: 700, color: "#1e293b", margin: "0 0 16px" }}>{title}</h3>
-              {items.map(([icon, lbl, desc]) => (
+              {items.map(([Icon, lbl, desc, bg]) => (
                 <div key={lbl} style={{ display: "flex", alignItems: "flex-start", gap: 12, marginBottom: 14 }}>
-                  <div style={{ width: 36, height: 36, borderRadius: 10, background: "#eff6ff", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, fontSize: 16 }}>{icon}</div>
+                  <div style={{ width: 36, height: 36, borderRadius: 10, background: bg, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                    <Icon size={16} color="#2563eb" />
+                  </div>
                   <div>
                     <div style={{ fontSize: 13, fontWeight: 600, color: "#1e293b" }}>{lbl}</div>
                     <div style={{ fontSize: 12, color: "#94a3b8", marginTop: 2 }}>{desc}</div>
@@ -491,6 +483,9 @@ export default function PersonalLoanCalc() {
         input[type=range] { -webkit-appearance: none; appearance: none; height: 20px; background: transparent; }
         input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 18px; height: 18px; border-radius: 50%; background: #2563eb; border: 3px solid white; box-shadow: 0 1px 6px rgba(37,99,235,0.4); cursor: pointer; }
         * { box-sizing: border-box; }
+        @media (max-width: 768px) {
+          .calc-wrapper { padding: 0 16px !important; }
+        }
       `}</style>
     </div>
   );

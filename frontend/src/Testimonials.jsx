@@ -1,4 +1,6 @@
 // Testimonials.jsx
+import { Star, User, MapPin, Quote } from "lucide-react";
+
 const testimonials = [
   {
     initials: "RK", avatarBg: "#fff7ed", avatarColor: "#f97316",
@@ -22,6 +24,7 @@ export default function Testimonials() {
     <section className="testi-section">
       <div className="testi-header">
         <div className="section-label" style={{ background: "rgba(249,115,22,.15)", color: "#fb923c", borderColor: "rgba(249,115,22,.3)" }}>
+          <Star size={14} fill="#fb923c" />
           Customer Stories
         </div>
         <h2 className="section-title" style={{ color: "white", marginTop: 10 }}>2,40,000+ Happy Customers</h2>
@@ -32,13 +35,26 @@ export default function Testimonials() {
       <div className="testi-grid">
         {testimonials.map(t => (
           <div className="testi-card" key={t.name}>
-            <div className="stars">{"★".repeat(t.rating)}</div>
+            <div className="stars">
+              {[...Array(t.rating)].map((_, i) => (
+                <Star key={i} size={16} fill="#f97316" color="#f97316" />
+              ))}
+            </div>
+            <Quote size={32} style={{ opacity: 0.15, position: "absolute", top: 20, right: 24 }} />
             <p className="testi-text">"{t.text}"</p>
             <div className="testi-author">
-              <div className="testi-avatar" style={{ background: t.avatarBg, color: t.avatarColor }}>{t.initials}</div>
+              <div className="testi-avatar" style={{ background: t.avatarBg, color: t.avatarColor }}>
+                {t.initials}
+              </div>
               <div>
-                <div className="testi-name">{t.name}</div>
-                <div className="testi-city">{t.city}</div>
+                <div className="testi-name">
+                  <User size={12} style={{ marginRight: 4, opacity: 0.6 }} />
+                  {t.name}
+                </div>
+                <div className="testi-city">
+                  <MapPin size={10} style={{ marginRight: 3, opacity: 0.5 }} />
+                  {t.city}
+                </div>
               </div>
             </div>
           </div>

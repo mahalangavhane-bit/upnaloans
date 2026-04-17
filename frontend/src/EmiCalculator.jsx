@@ -1,5 +1,6 @@
 // EmiCalculator.jsx
 import { useState } from "react";
+import { IndianRupee, Percent, Calendar, TrendingUp, Calculator, CheckCircle } from "lucide-react";
 import { fmtINR } from "./styles";
 
 export default function EmiCalculator() {
@@ -22,7 +23,10 @@ export default function EmiCalculator() {
   return (
     <section className="section calc-section">
       <div className="section-inner">
-        <div className="section-label">Smart Tools</div>
+        <div className="section-label">
+          <Calculator size={16} />
+          Smart Tools
+        </div>
         <h2 className="section-title">EMI Calculator</h2>
         <p className="section-sub">Instantly calculate your monthly EMI, total interest and plan your loan repayment with ease.</p>
 
@@ -30,27 +34,39 @@ export default function EmiCalculator() {
           {/* ── Input side ── */}
           <div className="calc-box">
             <div className="calc-field">
-              <div className="calc-field-label">Loan Amount <span>{fmtINR(loanAmt)}</span></div>
+              <div className="calc-field-label">
+                <IndianRupee size={14} />
+                Loan Amount <span>{fmtINR(loanAmt)}</span>
+              </div>
               <input type="range" className="range-input"
                 min={100000} max={10000000} step={50000}
                 value={loanAmt} onChange={e => setLoanAmt(+e.target.value)}
                 style={rangeStyle(loanAmt, 100000, 10000000)} />
             </div>
             <div className="calc-field">
-              <div className="calc-field-label">Interest Rate <span>{rate.toFixed(1)}%</span></div>
+              <div className="calc-field-label">
+                <Percent size={14} />
+                Interest Rate <span>{rate.toFixed(1)}%</span>
+              </div>
               <input type="range" className="range-input"
                 min={6} max={20} step={0.1}
                 value={rate} onChange={e => setRate(+e.target.value)}
                 style={rangeStyle(rate, 6, 20)} />
             </div>
             <div className="calc-field">
-              <div className="calc-field-label">Loan Tenure <span>{tenure} Years</span></div>
+              <div className="calc-field-label">
+                <Calendar size={14} />
+                Loan Tenure <span>{tenure} Years</span>
+              </div>
               <input type="range" className="range-input"
                 min={1} max={30} step={1}
                 value={tenure} onChange={e => setTenure(+e.target.value)}
                 style={rangeStyle(tenure, 1, 30)} />
             </div>
-            <button className="btn-solid" style={{ width: "100%", height: 48 }}>Calculate EMI</button>
+            <button className="btn-solid" style={{ width: "100%", height: 48 }}>
+              <TrendingUp size={16} />
+              Calculate EMI
+            </button>
           </div>
 
           {/* ── Result side ── */}
@@ -59,13 +75,16 @@ export default function EmiCalculator() {
             <div className="result-emi">₹{Math.round(emi).toLocaleString("en-IN")}</div>
             <div className="result-grid">
               {[
-                ["Principal Amount", fmtINR(loanAmt)],
-                ["Total Interest",   fmtINR(interest)],
-                ["Total Payment",    fmtINR(total)],
-                ["Interest %",       (100 - pPct) + "%"],
-              ].map(([label, val]) => (
+                ["Principal Amount", fmtINR(loanAmt), IndianRupee],
+                ["Total Interest",   fmtINR(interest), Percent],
+                ["Total Payment",    fmtINR(total), TrendingUp],
+                ["Interest %",       (100 - pPct) + "%", null],
+              ].map(([label, val, Icon]) => (
                 <div className="result-item" key={label}>
-                  <div className="result-item-label">{label}</div>
+                  <div className="result-item-label">
+                    {Icon && <Icon size={12} />}
+                    {label}
+                  </div>
                   <div className="result-item-val">{val}</div>
                 </div>
               ))}
@@ -84,7 +103,10 @@ export default function EmiCalculator() {
                 <span>Interest</span>
               </div>
             </div>
-            <button className="btn-apply-calc">Apply for This Loan →</button>
+            <button className="btn-apply-calc">
+              <CheckCircle size={16} />
+              Apply for This Loan →
+            </button>
           </div>
         </div>
       </div>

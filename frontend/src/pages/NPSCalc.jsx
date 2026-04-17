@@ -1,4 +1,5 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
+import { Zap, TrendingDown, Lock, Handshake, BarChart2, CheckSquare, FileText, Rocket, MapPin, Building2, DollarSign, TrendingUp, Calendar, Star, Clock, CreditCard } from "lucide-react";
 
 const schemes = [
   { name: "Auto Choice - Life Cycle Fund", return: "10.50%", risk: "High", allocation: "Equity 75% + Debt 25%", color: "#2563eb" },
@@ -84,7 +85,6 @@ function DonutChart({ principal, interest }) {
   const circ = 2 * Math.PI * r;
   const pDash = pPct * circ;
   const iDash = iPct * circ;
-  const iOffset = -pDash;
   return (
     <svg viewBox="0 0 180 180" style={{ width: 160, height: 160 }}>
       <circle cx={cx} cy={cy} r={r} fill="none" stroke="#e2e8f0" strokeWidth={stroke} />
@@ -105,21 +105,16 @@ export default function NPSCalc() {
   const [age, setAge] = useState(30);
   const [openFaq, setOpenFaq] = useState(null);
 
-  // Calculate NPS corpus and pension
   const yearsToRetirement = 60 - age;
   const monthlyRate = expectedReturn / 100 / 12;
   const months = yearsToRetirement * 12;
   
-  // Future value of initial contribution
   const initialFutureValue = initialContribution * Math.pow(1 + expectedReturn / 100, yearsToRetirement);
-  
-  // Future value of monthly contributions
   const monthlyFutureValue = monthlyContribution * ((Math.pow(1 + monthlyRate, months) - 1) / monthlyRate);
-  
   const totalCorpus = initialFutureValue + monthlyFutureValue;
   const taxFreeWithdrawal = totalCorpus * 0.6;
   const annuityAmount = totalCorpus * 0.4;
-  const estimatedMonthlyPension = annuityAmount * 0.06 / 12; // Assuming 6% annuity rate
+  const estimatedMonthlyPension = annuityAmount * 0.06 / 12;
 
   const card = {
     background: "#fff", borderRadius: 16, boxShadow: "0 2px 16px rgba(0,0,0,0.07)",
@@ -129,27 +124,11 @@ export default function NPSCalc() {
   return (
     <div style={{ fontFamily: "'Segoe UI', system-ui, sans-serif", background: "#f8fafc", minHeight: "100vh" }}>
 
-      {/* TOP NAV BAR */}
-      <div style={{ background: "#1e293b", padding: "0 32px", display: "flex", alignItems: "center", justifyContent: "space-between", height: 56 }}>
-        <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-          <div style={{ width: 30, height: 30, borderRadius: 8, background: "linear-gradient(135deg,#3b82f6,#2563eb)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-            <span style={{ color: "#fff", fontWeight: 700, fontSize: 13 }}>U</span>
-          </div>
-          <span style={{ color: "#fff", fontWeight: 700, fontSize: 16, letterSpacing: "-0.3px" }}>UpnaLoan</span>
-        </div>
-        <div style={{ display: "flex", gap: 24 }}>
-          {["Personal Loan", "Home Loan", "Car Loan", "Credit Cards", "Insurance"].map(t => (
-            <span key={t} style={{ fontSize: 13, color: "#94a3b8", cursor: "pointer", transition: "color 0.15s" }}
-              onMouseEnter={e => e.target.style.color = "#fff"} onMouseLeave={e => e.target.style.color = "#94a3b8"}>{t}</span>
-          ))}
-        </div>
-        <button style={{ background: "#2563eb", color: "#fff", border: "none", borderRadius: 8, padding: "8px 18px", fontSize: 13, fontWeight: 600, cursor: "pointer" }}>Apply Now</button>
-      </div>
-
       {/* HERO */}
       <div style={{
         background: "linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #1e293b 100%)",
-        padding: "52px 48px 60px", position: "relative", overflow: "hidden"
+        padding: "52px 48px 60px",
+        position: "relative", overflow: "hidden"
       }}>
         <div style={{ position: "absolute", right: 80, top: 20, width: 260, height: 260, borderRadius: "50%", background: "rgba(59,130,246,0.08)", pointerEvents: "none" }} />
         <div style={{ position: "absolute", right: 140, top: 60, width: 120, height: 120, borderRadius: "50%", background: "rgba(59,130,246,0.05)", pointerEvents: "none" }} />
@@ -182,9 +161,9 @@ export default function NPSCalc() {
       {/* BREADCRUMB */}
       <div style={{ background: "#fff", borderBottom: "1px solid #f1f5f9", padding: "10px 48px" }}>
         <span style={{ fontSize: 12, color: "#94a3b8" }}>Home</span>
-        <span style={{ fontSize: 12, color: "#cbd5e1", margin: "0 6px" }}>·</span>
+        <span style={{ fontSize: 12, color: "#cbd5e1", margin: "0 6px" }}>›</span>
         <span style={{ fontSize: 12, color: "#94a3b8" }}>Investments</span>
-        <span style={{ fontSize: 12, color: "#cbd5e1", margin: "0 6px" }}>·</span>
+        <span style={{ fontSize: 12, color: "#cbd5e1", margin: "0 6px" }}>›</span>
         <span style={{ fontSize: 12, color: "#2563eb", fontWeight: 500 }}>NPS Calculator</span>
       </div>
 
@@ -199,118 +178,248 @@ export default function NPSCalc() {
             <SliderInput label="Current Age" value={age} min={18} max={55} step={1}
               onChange={setAge} suffix=" years" />
             <SliderInput label="Initial Contribution" value={initialContribution} min={0} max={1000000} step={1000}
-              onChange={setInitialContribution} prefix="Rs." formatFn={v => formatINR(v)} />
+              onChange={setInitialContribution} prefix="₹" formatFn={v => formatINR(v)} />
             <SliderInput label="Monthly Contribution" value={monthlyContribution} min={500} max={50000} step={500}
-              onChange={setMonthlyContribution} prefix="Rs." formatFn={v => formatINR(v)} />
+              onChange={setMonthlyContribution} prefix="₹" formatFn={v => formatINR(v)} />
             <SliderInput label="Expected Return" value={expectedReturn} min={6} max={15} step={0.5}
               onChange={setExpectedReturn} suffix="%" />
+            <div style={{ background: "#eff6ff", borderRadius: 12, padding: "14px 18px", marginTop: 8, border: "1px solid #bfdbfe", display: "flex", alignItems: "flex-start", gap: 8 }}>
+              <Zap size={14} color="#3b82f6" style={{ marginTop: 2, flexShrink: 0 }} />
+              <p style={{ margin: 0, fontSize: 12, color: "#3b82f6", lineHeight: 1.6 }}>
+                <strong>Tip:</strong> Start early to maximize your retirement corpus through the power of compounding.
+              </p>
+            </div>
           </div>
 
           {/* RIGHT: Results */}
-          <div style={{ flex: "1 1 380px", ...card }}>
-            <h2 style={{ fontSize: 18, fontWeight: 700, color: "#1e293b", margin: "0 0 24px" }}>Retirement Details</h2>
-            <div style={{ textAlign: "center", marginBottom: 32 }}>
-              <div style={{ fontSize: 14, color: "#64748b", marginBottom: 8 }}>Total Corpus at 60</div>
-              <div style={{ fontSize: 36, fontWeight: 700, color: "#3b82f6", lineHeight: 1.2 }}>{formatINR(totalCorpus)}</div>
-            </div>
+          <div style={{ flex: "1 1 340px", display: "flex", flexDirection: "column", gap: 20 }}>
 
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginBottom: 32 }}>
-              {[
-                ["Tax-Free Withdrawal", formatINR(taxFreeWithdrawal)],
-                ["Annuity Amount", formatINR(annuityAmount)],
-                ["Monthly Pension", formatINR(estimatedMonthlyPension)],
-                ["Years to Retirement", yearsToRetirement + " years"]
-              ].map(([label, val]) => (
-                <div key={label} style={{ padding: 16, background: "#f8fafc", borderRadius: 8, border: "1px solid #e2e8f0" }}>
-                  <div style={{ fontSize: 12, color: "#64748b", marginBottom: 4 }}>{label}</div>
-                  <div style={{ fontSize: 18, fontWeight: 600, color: "#1e293b" }}>{val}</div>
-                </div>
-              ))}
-            </div>
-
-            {/* Donut Chart */}
-            <div style={{ marginBottom: 32 }}>
-              <DonutChart principal={taxFreeWithdrawal} interest={annuityAmount} />
-              <div style={{ display: "flex", gap: 24, justifyContent: "center", marginTop: 16 }}>
-                <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                  <div style={{ width: 12, height: 12, background: "#3b82f6", borderRadius: 2 }} />
-                  <span style={{ fontSize: 14, color: "#64748b" }}>Tax-Free (60%)</span>
-                </div>
-                <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                  <div style={{ width: 12, height: 12, background: "#e2e8f0", borderRadius: 2 }} />
-                  <span style={{ fontSize: 14, color: "#64748b" }}>Annuity (40%)</span>
-                </div>
-              </div>
-            </div>
-
-            <button style={{ width: "100%", height: 48, background: "#3b82f6", color: "#fff", border: "none", borderRadius: 8, fontSize: 16, fontWeight: 600, cursor: "pointer", marginBottom: 24 }}
-              onMouseEnter={e => {
-                e.target.style.background = "#2563eb";
-                e.target.style.transform = "translateY(-2px)";
-              }}
-              onMouseLeave={e => {
-                e.target.style.background = "#3b82f6";
-                e.target.style.transform = "translateY(0)";
-              }}
-            >
-              Open NPS Account
-            </button>
-          </div>
-        </div>
-
-        {/* Schemes */}
-        <div style={{ marginTop: 48 }}>
-          <h3 style={{ fontSize: 24, fontWeight: 700, color: "#1e293b", marginBottom: 24 }}>NPS Investment Options</h3>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 20 }}>
-            {schemes.map((scheme, index) => (
-              <div key={index} style={{ background: "#fff", borderRadius: 12, padding: 24, border: "1px solid #e2e8f0", transition: "all 0.3s", cursor: "pointer" }}
-                onMouseEnter={e => {
-                  e.currentTarget.style.transform = "translateY(-4px)";
-                  e.currentTarget.style.boxShadow = "0 8px 24px rgba(0,0,0,0.12)";
-                }}
-                onMouseLeave={e => {
-                  e.currentTarget.style.transform = "translateY(0)";
-                  e.currentTarget.style.boxShadow = "none";
-                }}
-              >
-                <div style={{ fontSize: 18, fontWeight: 700, color: "#1e293b", marginBottom: 16 }}>{scheme.name}</div>
+            {/* Corpus Highlight */}
+            <div style={{ background: "linear-gradient(135deg,#1d4ed8,#2563eb)", borderRadius: 16, padding: "28px 28px 24px", color: "#fff" }}>
+              <p style={{ margin: "0 0 4px", fontSize: 13, opacity: 0.8, fontWeight: 500 }}>Total Corpus at 60</p>
+              <h1 style={{ margin: "0 0 20px", fontSize: 44, fontWeight: 800, letterSpacing: "-1px" }}>
+                ₹{formatINR(totalCorpus)}
+              </h1>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
                 {[
-                  ["Expected Return", scheme.return],
-                  ["Risk Level", scheme.risk],
-                  ["Asset Allocation", scheme.allocation]
-                ].map(([label, val]) => (
-                  <div key={label} style={{ display: "flex", justifyContent: "space-between", marginBottom: 8 }}>
-                    <span style={{ fontSize: 14, color: "#64748b" }}>{label}</span>
-                    <span style={{ fontSize: 14, fontWeight: 600, color: "#1e293b" }}>{val}</span>
+                  ["Tax-Free (60%)", `₹${formatINR(taxFreeWithdrawal)}`],
+                  ["Annuity (40%)", `₹${formatINR(annuityAmount)}`],
+                ].map(([l, v]) => (
+                  <div key={l} style={{ background: "rgba(255,255,255,0.12)", borderRadius: 10, padding: "10px 12px" }}>
+                    <div style={{ fontSize: 10, opacity: 0.75, marginBottom: 3 }}>{l}</div>
+                    <div style={{ fontSize: 13, fontWeight: 700 }}>{v}</div>
                   </div>
                 ))}
               </div>
-            ))}
+            </div>
+
+            {/* Donut + Legend */}
+            <div style={{ ...card, display: "flex", alignItems: "center", gap: 20 }}>
+              <DonutChart principal={taxFreeWithdrawal} interest={annuityAmount} />
+              <div style={{ flex: 1 }}>
+                <p style={{ margin: "0 0 12px", fontSize: 13, fontWeight: 600, color: "#1e293b" }}>Breakup</p>
+                {[
+                  ["Tax-Free Withdrawal", taxFreeWithdrawal, "#2563eb"],
+                  ["Annuity Amount", annuityAmount, "#fb923c"],
+                ].map(([lbl, val, clr]) => (
+                  <div key={lbl} style={{ marginBottom: 10 }}>
+                    <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 3 }}>
+                      <span style={{ fontSize: 12, color: "#475569", display: "flex", alignItems: "center", gap: 5 }}>
+                        <span style={{ width: 8, height: 8, borderRadius: "50%", background: clr, display: "inline-block" }} />
+                        {lbl}
+                      </span>
+                      <span style={{ fontSize: 12, fontWeight: 600, color: "#1e293b" }}>₹{formatINR(val)}</span>
+                    </div>
+                    <div style={{ height: 4, borderRadius: 99, background: "#f1f5f9" }}>
+                      <div style={{ height: "100%", borderRadius: 99, background: clr, width: `${(val / totalCorpus) * 100}%` }} />
+                    </div>
+                  </div>
+                ))}
+                <div style={{ marginTop: 12, background: "#f8fafc", borderRadius: 8, padding: "10px" }}>
+                  <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 4 }}>
+                    <span style={{ fontSize: 11, color: "#64748b" }}>Monthly Pension (est.)</span>
+                    <span style={{ fontSize: 12, fontWeight: 700, color: "#16a34a" }}>₹{formatINR(estimatedMonthlyPension)}</span>
+                  </div>
+                  <div style={{ display: "flex", justifyContent: "space-between" }}>
+                    <span style={{ fontSize: 11, color: "#64748b" }}>Years to Retirement</span>
+                    <span style={{ fontSize: 12, fontWeight: 600, color: "#1e293b" }}>{yearsToRetirement} years</span>
+                  </div>
+                </div>
+                <button style={{
+                  width: "100%", marginTop: 12, background: "#2563eb", color: "#fff",
+                  border: "none", borderRadius: 10, padding: "12px", fontSize: 14,
+                  fontWeight: 700, cursor: "pointer", letterSpacing: "0.2px"
+                }}>Open NPS Account →</button>
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* FAQ Section */}
-        <div style={{ marginTop: 48 }}>
-          <h3 style={{ fontSize: 24, fontWeight: 700, color: "#1e293b", marginBottom: 24 }}>Frequently Asked Questions</h3>
-          <div style={{ display: "grid", gap: 16 }}>
-            {faqs.map((faq, index) => (
-              <div key={index} style={{ background: "#fff", borderRadius: 12, border: "1px solid #e2e8f0", overflow: "hidden" }}>
-                <div style={{ padding: 20, background: "#f8fafc", cursor: "pointer", fontWeight: 600, color: "#1e293b" }}
-                  onClick={() => {
-                    const element = document.getElementById(`faq-${index}`);
-                    element.style.display = element.style.display === "block" ? "none" : "block";
-                  }}
-                >
-                  {faq.q}
+        {/* SCHEMES */}
+        <div style={{ marginTop: 40 }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 20 }}>
+            <div>
+              <h2 style={{ fontSize: 22, fontWeight: 800, color: "#1e293b", margin: 0 }}>NPS Investment Options</h2>
+              <p style={{ color: "#64748b", fontSize: 14, margin: "4px 0 0" }}>Choose between Auto and Active choice based on your risk appetite.</p>
+            </div>
+            <span style={{ fontSize: 13, color: "#2563eb", cursor: "pointer", fontWeight: 600 }}>View All Options →</span>
+          </div>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 18 }}>
+            {schemes.map((scheme, i) => (
+              <div key={i} style={{
+                ...card, padding: "22px 22px 20px", position: "relative",
+                transition: "transform 0.2s, box-shadow 0.2s", cursor: "pointer"
+              }}
+                onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-4px)"; e.currentTarget.style.boxShadow = "0 12px 32px rgba(0,0,0,0.12)"; }}
+                onMouseLeave={e => { e.currentTarget.style.transform = "none"; e.currentTarget.style.boxShadow = "0 2px 16px rgba(0,0,0,0.07)"; }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 16 }}>
+                  <div style={{ width: 42, height: 42, borderRadius: 10, background: scheme.color, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                    <TrendingUp size={20} color="#fff" />
+                  </div>
+                  <div>
+                    <div style={{ fontWeight: 700, fontSize: 14, color: "#1e293b" }}>{scheme.name}</div>
+                    <div style={{ fontSize: 11, color: "#94a3b8" }}>Risk: {scheme.risk}</div>
+                  </div>
                 </div>
-                <div id={`faq-${index}`} style={{ padding: 20, display: "none", borderTop: "1px solid #e2e8f0" }}>
-                  {faq.a}
+                <div style={{ marginBottom: 8, display: "flex", justifyContent: "space-between" }}>
+                  <span style={{ fontSize: 12, color: "#64748b" }}>Expected Return</span>
+                  <span style={{ fontSize: 13, fontWeight: 700, color: "#16a34a" }}>{scheme.return}</span>
+                </div>
+                <div>
+                  <span style={{ fontSize: 12, color: "#64748b" }}>Asset Allocation</span>
+                  <div style={{ fontSize: 12, fontWeight: 500, color: "#1e293b", marginTop: 2 }}>{scheme.allocation}</div>
                 </div>
               </div>
             ))}
           </div>
         </div>
+
+        {/* QUICK LINKS */}
+        <div style={{ ...card, marginTop: 36 }}>
+          <h2 style={{ fontSize: 18, fontWeight: 700, color: "#1e293b", margin: "0 0 18px" }}>Quick Links</h2>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))", gap: 12 }}>
+            {[
+              [BarChart2, "Returns", "#eff6ff", "#2563eb"],
+              [CheckSquare, "Tax Benefits", "#f0fdf4", "#16a34a"],
+              [FileText, "Documents", "#fef9ec", "#d97706"],
+              [Rocket, "Open Account", "#fdf2f8", "#9333ea"],
+              [Building2, "Pension Funds", "#fff1f2", "#e11d48"],
+              [CreditCard, "Contribute", "#f0f9ff", "#0284c7"],
+            ].map(([Icon, label, bg, clr]) => (
+              <div key={label} style={{
+                background: bg, borderRadius: 12, padding: "16px 14px",
+                border: `1px solid ${clr}22`, cursor: "pointer", textAlign: "center",
+                transition: "transform 0.15s, box-shadow 0.15s"
+              }}
+                onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = "0 8px 20px rgba(0,0,0,0.08)"; }}
+                onMouseLeave={e => { e.currentTarget.style.transform = "none"; e.currentTarget.style.boxShadow = "none"; }}>
+                <div style={{ display: "flex", justifyContent: "center", marginBottom: 8 }}>
+                  <Icon size={22} color={clr} />
+                </div>
+                <div style={{ fontSize: 13, fontWeight: 600, color: clr }}>{label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* WHY CHOOSE */}
+        <div style={{ ...card, marginTop: 32 }}>
+          <div style={{ textAlign: "center", marginBottom: 28 }}>
+            <h2 style={{ fontSize: 22, fontWeight: 800, color: "#1e293b", margin: "0 0 6px" }}>Why Invest in NPS?</h2>
+            <p style={{ color: "#64748b", fontSize: 14, margin: 0 }}>Government-backed retirement solution with market-linked returns</p>
+          </div>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 18 }}>
+            {[
+              [Zap, "Tax Benefits", "Additional ₹50,000 tax saving under 80CCD(1B).", "#fefce8", "#ca8a04"],
+              [TrendingDown, "Market Returns", "Higher returns than traditional retirement products.", "#eff6ff", "#2563eb"],
+              [Lock, "Government Backed", "Safe and regulated by PFRDA.", "#f0fdf4", "#16a34a"],
+              [Handshake, "Low Cost", "Lowest fund management charges among retirement products.", "#fdf4ff", "#9333ea"],
+            ].map(([Icon, title, desc, bg, clr]) => (
+              <div key={title} style={{ background: bg, borderRadius: 14, padding: "22px 18px", border: `1px solid ${clr}18` }}>
+                <div style={{ marginBottom: 10 }}>
+                  <Icon size={24} color={clr} />
+                </div>
+                <h3 style={{ fontSize: 15, fontWeight: 700, color: "#1e293b", margin: "0 0 6px" }}>{title}</h3>
+                <p style={{ fontSize: 13, color: "#64748b", margin: 0, lineHeight: 1.6 }}>{desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* INFO SECTIONS */}
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))", gap: 20, marginTop: 32 }}>
+          {[
+            ["What is NPS?", "NPS (National Pension System) is a government-backed retirement savings scheme that helps you build a retirement corpus through regular contributions. It offers market-linked returns with tax benefits."],
+            ["How to Calculate NPS Corpus?", "NPS corpus is calculated using compound interest formula considering initial lump sum and monthly contributions. Use our calculator for instant, accurate results."],
+            ["NPS Tax Benefits", "NPS offers triple tax benefits: Section 80CCD(1) deduction up to ₹1.5 lakh, additional ₹50,000 under 80CCD(1B), and 60% of maturity amount is tax-free."],
+            ["NPS Withdrawal Rules", "At 60, you must use 40% for annuity (pension). 60% can be withdrawn tax-free. Early exit is allowed with conditions. You can defer withdrawal up to 70 years."],
+            ["NPS vs PPF vs Mutual Funds", "NPS offers higher returns than PPF with some market risk, lower than pure equity funds, but with lowest charges and tax benefits unmatched by other products."],
+            ["Who Should Invest in NPS?", "Salaried employees, self-employed professionals, and anyone looking for retirement planning with tax benefits should consider NPS as part of their portfolio."],
+          ].map(([title, body]) => (
+            <div key={title} style={{ ...card, padding: "22px 24px" }}>
+              <h3 style={{ fontSize: 15, fontWeight: 700, color: "#1e293b", margin: "0 0 10px", borderLeft: "3px solid #2563eb", paddingLeft: 10 }}>{title}</h3>
+              <p style={{ fontSize: 13, color: "#475569", margin: 0, lineHeight: 1.7 }}>{body}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* FAQ */}
+        <div style={{ ...card, marginTop: 32 }}>
+          <h2 style={{ fontSize: 20, fontWeight: 800, color: "#1e293b", margin: "0 0 20px" }}>Frequently Asked Questions</h2>
+          {faqs.map((faq, i) => (
+            <div key={i} style={{ borderBottom: i < faqs.length - 1 ? "1px solid #f1f5f9" : "none" }}>
+              <div
+                style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "16px 0", cursor: "pointer" }}
+                onClick={() => setOpenFaq(openFaq === i ? null : i)}>
+                <span style={{ fontSize: 14, fontWeight: 600, color: "#1e293b", paddingRight: 16 }}>{faq.q}</span>
+                <span style={{
+                  width: 28, height: 28, borderRadius: "50%", background: openFaq === i ? "#2563eb" : "#f1f5f9",
+                  display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0,
+                  fontSize: 16, color: openFaq === i ? "#fff" : "#64748b", fontWeight: 700, lineHeight: 1, transition: "all 0.2s"
+                }}>{openFaq === i ? "−" : "+"}</span>
+              </div>
+              {openFaq === i && (
+                <div style={{ padding: "0 0 16px", animation: "fadeIn 0.15s" }}>
+                  <p style={{ margin: 0, fontSize: 13, color: "#475569", lineHeight: 1.7, background: "#f8fafc", borderRadius: 10, padding: "14px 16px" }}>{faq.a}</p>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+
+        {/* CTA FOOTER BANNER */}
+        <div style={{
+          margin: "36px 0 48px",
+          background: "linear-gradient(135deg, #1d4ed8 0%, #2563eb 60%, #3b82f6 100%)",
+          borderRadius: 20, padding: "40px 48px",
+          display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 24
+        }}>
+          <div>
+            <h2 style={{ fontSize: 26, fontWeight: 800, color: "#fff", margin: "0 0 8px" }}>Start Planning Your Retirement Today</h2>
+            <p style={{ color: "rgba(255,255,255,0.75)", margin: 0, fontSize: 15 }}>Tax benefits · Market-linked returns · Government backed · Low costs</p>
+          </div>
+          <div style={{ display: "flex", gap: 12 }}>
+            <button style={{
+              background: "#fff", color: "#2563eb", border: "none", borderRadius: 12,
+              padding: "14px 28px", fontSize: 15, fontWeight: 800, cursor: "pointer", letterSpacing: "0.2px"
+            }}>Open NPS Account</button>
+            <button style={{
+              background: "rgba(255,255,255,0.15)", color: "#fff", border: "2px solid rgba(255,255,255,0.4)",
+              borderRadius: 12, padding: "14px 28px", fontSize: 15, fontWeight: 700, cursor: "pointer"
+            }}>Learn More →</button>
+          </div>
+        </div>
       </div>
+
+      <style>{`
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+        input[type=range] { -webkit-appearance: none; appearance: none; height: 20px; background: transparent; }
+        input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 18px; height: 18px; border-radius: 50%; background: #2563eb; border: 3px solid white; box-shadow: 0 1px 6px rgba(37,99,235,0.4); cursor: pointer; }
+        * { box-sizing: border-box; }
+        @media (max-width: 768px) {
+          .calc-wrapper { padding: 0 16px !important; }
+        }
+      `}</style>
     </div>
   );
 }

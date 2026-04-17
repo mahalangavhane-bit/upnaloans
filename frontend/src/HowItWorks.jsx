@@ -23,6 +23,29 @@ export default function HowItWorks() {
           ))}
         </div>
       </div>
+      
+      {/* Responsive Styles */}
+      <style>{`
+        @media (max-width: 1024px) {
+          .steps-grid {
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 24px !important;
+          }
+        }
+        @media (max-width: 640px) {
+          .steps-grid {
+            grid-template-columns: 1fr !important;
+            gap: 20px !important;
+          }
+          .section-inner {
+            padding-left: 16px !important;
+            padding-right: 16px !important;
+          }
+          .section-title {
+            font-size: 28px !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }
