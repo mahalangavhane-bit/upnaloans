@@ -59,7 +59,7 @@ export default function Navbar() {
                 color: "white",
                 cursor: "pointer",
                 textDecoration: "none",
-                fontFamily: "'Sora' sans-serif"
+                fontFamily: "'Sora', sans-serif"
               }}
               >
                 {link.label}
@@ -70,8 +70,11 @@ export default function Navbar() {
         </ul>
 
         {/* CTA button */}
-        <div style={{ display: "flex", gap: 12, alignItems: "center" }} className="nav-cta">
-          <Link to="/contact" style={{ textDecoration: "none" }}>
+        <div className="nav-cta">
+          <span onClick={() =>{
+            document.getElementById("contact")?.scrollIntoView({ behavior: "smooth"});
+
+          }}>
             <button style={{
               background: "linear-gradient(135deg, #f97316, #eab308)",
               color: "white",
@@ -89,7 +92,7 @@ export default function Navbar() {
               onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-1px)"; e.currentTarget.style.boxShadow = "0 6px 20px rgba(249,115,22,0.45)"; }}
               onMouseLeave={e => { e.currentTarget.style.transform = ""; e.currentTarget.style.boxShadow = "0 4px 14px rgba(249,115,22,0.35)"; }}
             >Apply Now →</button>
-          </Link>
+         </span>
         </div>
 
         {/* Hamburger */}
@@ -131,6 +134,7 @@ export default function Navbar() {
               fontFamily: "'Sora', sans-serif"
             }}
             >
+              {link.label}
             </span>
           ))}
         </div>
@@ -156,8 +160,8 @@ export default function Navbar() {
         @import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&display=swap');
         @keyframes ticker { from { transform: translateX(0) } to { transform: translateX(-33.33%) } }
         @media (max-width: 900px) {
-          .nav-main-links { display: none !important; }
-          .nav-cta { display: none !important; }
+          .nav-main-links { display: flex !important; }
+          .nav-cta { display: flex !important; }
           .hamburger-btn { display: flex !important; }
         }
       `}</style>

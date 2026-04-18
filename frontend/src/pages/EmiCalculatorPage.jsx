@@ -57,10 +57,17 @@ export default function EmiCalculatorPage() {
         </p>
       </div>
 
-      <div style={{ padding: "0 80px" }}>
+      <div style={{
+        maxWidth: "1200px",
+        margin: "0 auto", 
+        padding: "0 16px" }}>
         <EmiCalculator />
       </div>
-      <div style={{ padding: "0 80px", marginTop: 40 }}>
+      <div style={{
+        maxWidth: "1200px",
+        margin: "40px auto 0" ,
+        padding: "0 16px"
+        }}>
         <CalculatorTools />
       </div>
 
