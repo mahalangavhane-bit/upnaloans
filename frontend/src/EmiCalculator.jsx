@@ -60,8 +60,8 @@ export default function EmiCalculator() {
 
         <div className="calc-wrapper" style={{ 
           display: "grid", 
-          gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", 
-          gap: "clamp(24px, 4vw, 40px)",
+          gridTemplateColumns: "1fr", 
+          gap: "24px",
           alignItems: "start"
         }}>
           {/* ── Input side ── */}

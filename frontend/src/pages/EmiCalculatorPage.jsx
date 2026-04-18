@@ -60,8 +60,13 @@ export default function EmiCalculatorPage() {
       <div style={{
         maxWidth: "1200px",
         margin: "0 auto", 
-        padding: "0 16px" }}>
-        <EmiCalculator />
+        padding: "0 16px",
+        display:"flex",
+        justifyContent: "center" 
+        }}>
+          <div style={{width: "100%"}}>
+            <EmiCalculator />
+      </div>
       </div>
       <div style={{
         maxWidth: "1200px",

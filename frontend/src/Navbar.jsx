@@ -160,8 +160,8 @@ export default function Navbar() {
         @import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&display=swap');
         @keyframes ticker { from { transform: translateX(0) } to { transform: translateX(-33.33%) } }
         @media (max-width: 900px) {
-          .nav-main-links { display: flex !important; }
-          .nav-cta { display: flex !important; }
+          .nav-main-links { display: none !important; }
+          .nav-cta { display: none !important; }
           .hamburger-btn { display: flex !important; }
         }
       `}</style>
