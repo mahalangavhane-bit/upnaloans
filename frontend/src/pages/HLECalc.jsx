@@ -88,13 +88,13 @@ export default function HLECalc() {
       {/* HERO */}
       <div style={{
         background: "linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #1e293b 100%)",
-        padding: "52px 48px 60px",
+        padding: "clamp(40px, 8vw, 80px) clamp(16px, 5vw, 80px)",
         position: "relative", overflow: "hidden"
       }}>
         <div style={{ position: "absolute", right: 80, top: 20, width: 260, height: 260, borderRadius: "50%", background: "rgba(59,130,246,0.08)", pointerEvents: "none" }} />
         <div style={{ position: "absolute", right: 140, top: 60, width: 120, height: 120, borderRadius: "50%", background: "rgba(59,130,246,0.05)", pointerEvents: "none" }} />
-        <div style={{ maxWidth: 720 }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 14 }}>
+        <div style={{ maxWidth: 720, margin: "0 auto" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 14, flexWrap: "wrap" }}>
             <div style={{ background: "rgba(59,130,246,0.15)", borderRadius: 20, padding: "4px 12px" }}>
               <span style={{ color: "#93c5fd", fontSize: 12, fontWeight: 600 }}>FREE TOOL</span>
             </div>
@@ -102,16 +102,16 @@ export default function HLECalc() {
               <span style={{ color: "#86efac", fontSize: 12, fontWeight: 600 }}>INSTANT RESULT</span>
             </div>
           </div>
-          <h1 style={{ fontSize: 38, fontWeight: 800, color: "#fff", lineHeight: 1.2, margin: "0 0 14px", letterSpacing: "-0.5px" }}>
+          <h1 style={{ fontSize: "clamp(32px, 6vw, 48px)", fontWeight: 800, color: "#fff", lineHeight: 1.2, margin: "0 0 14px", letterSpacing: "-0.5px" }}>
             Home Loan Eligibility Calculator
           </h1>
-          <p style={{ color: "#94a3b8", fontSize: 16, lineHeight: 1.7, maxWidth: 580, margin: "0 0 24px" }}>
+          <p style={{ color: "#94a3b8", fontSize: "clamp(14px, 4vw, 16px)", lineHeight: 1.7, maxWidth: 580, margin: "0 0 24px" }}>
             Check your home loan eligibility instantly based on your income and existing obligations. Calculate the maximum loan amount you can qualify for from top lenders.
           </p>
-          <div style={{ display: "flex", gap: 28, flexWrap: "wrap" }}>
+          <div style={{ display: "flex", gap: "clamp(16px, 4vw, 28px)", flexWrap: "wrap" }}>
             {[["60% Rule", "Max Loan Amount"], ["8.50%", "Interest Rate"], ["2 Min", "Instant Check"]].map(([val, lbl]) => (
               <div key={lbl} style={{ textAlign: "center" }}>
-                <div style={{ fontSize: 22, fontWeight: 800, color: "#3b82f6", lineHeight: 1 }}>{val}</div>
+                <div style={{ fontSize: "clamp(18px, 4vw, 22px)", fontWeight: 800, color: "#3b82f6", lineHeight: 1 }}>{val}</div>
                 <div style={{ fontSize: 11, color: "#64748b", marginTop: 3, fontWeight: 500 }}>{lbl}</div>
               </div>
             ))}
@@ -120,7 +120,7 @@ export default function HLECalc() {
       </div>
 
       {/* BREADCRUMB */}
-      <div style={{ background: "#fff", borderBottom: "1px solid #f1f5f9", padding: "10px 48px" }}>
+      <div style={{ background: "#fff", borderBottom: "1px solid #f1f5f9", padding: "10px clamp(16px, 5vw, 48px)" }}>
         <span style={{ fontSize: 12, color: "#94a3b8" }}>Home</span>
         <span style={{ fontSize: 12, color: "#cbd5e1", margin: "0 6px" }}>›</span>
         <span style={{ fontSize: 12, color: "#94a3b8" }}>Home Loan</span>
@@ -128,10 +128,10 @@ export default function HLECalc() {
         <span style={{ fontSize: 12, color: "#2563eb", fontWeight: 500 }}>Eligibility Calculator</span>
       </div>
 
-      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 32px" }}>
+      <div style={{ maxWidth: 1280, margin: "0 auto", padding: "clamp(32px, 6vw, 48px) clamp(16px, 5vw, 48px)" }}>
 
         {/* CALCULATOR SECTION */}
-        <div style={{ display: "flex", gap: 28, marginTop: 36, flexWrap: "wrap" }}>
+        <div style={{ display: "flex", gap: "clamp(24px, 4vw, 40px)", marginTop: 20, flexWrap: "wrap" }}>
 
           {/* LEFT: Inputs */}
           <div style={{ flex: "1 1 380px", ...card }}>
@@ -154,12 +154,12 @@ export default function HLECalc() {
           <div style={{ flex: "1 1 340px", display: "flex", flexDirection: "column", gap: 20 }}>
 
             {/* Eligibility Highlight */}
-            <div style={{ background: "linear-gradient(135deg,#1d4ed8,#2563eb)", borderRadius: 16, padding: "28px 28px 24px", color: "#fff" }}>
+            <div style={{ background: "linear-gradient(135deg,#1d4ed8,#2563eb)", borderRadius: 16, padding: "clamp(20px, 4vw, 28px)", color: "#fff" }}>
               <p style={{ margin: "0 0 4px", fontSize: 13, opacity: 0.8, fontWeight: 500 }}>Maximum Eligible Amount</p>
-              <h1 style={{ margin: "0 0 20px", fontSize: 44, fontWeight: 800, letterSpacing: "-1px" }}>
+              <h1 style={{ margin: "0 0 20px", fontSize: "clamp(36px, 6vw, 44px)", fontWeight: 800, letterSpacing: "-1px" }}>
                 ₹{formatINR(eligibleAmount)}
               </h1>
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(100px, 1fr))", gap: 12 }}>
                 {[
                   ["Monthly Income", `₹${formatINR(monthlyIncome)}`],
                   ["Max EMI Capacity", `₹${formatINR(maxEMI)}`],
@@ -199,9 +199,9 @@ export default function HLECalc() {
         </div>
 
         {/* QUICK LINKS */}
-        <div style={{ ...card, marginTop: 36 }}>
+        <div style={{ ...card, marginTop: 48 }}>
           <h2 style={{ fontSize: 18, fontWeight: 700, color: "#1e293b", margin: "0 0 18px" }}>Quick Links</h2>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))", gap: 12 }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", gap: 12 }}>
             {[
               [BarChart2, "Interest Rates", "#eff6ff", "#2563eb"],
               [CheckSquare, "Eligibility", "#f0fdf4", "#16a34a"],
@@ -227,12 +227,12 @@ export default function HLECalc() {
         </div>
 
         {/* WHY CHOOSE */}
-        <div style={{ ...card, marginTop: 32 }}>
+        <div style={{ ...card, marginTop: 48 }}>
           <div style={{ textAlign: "center", marginBottom: 28 }}>
-            <h2 style={{ fontSize: 22, fontWeight: 800, color: "#1e293b", margin: "0 0 6px" }}>Why Choose UpnaLoan?</h2>
+            <h2 style={{ fontSize: "clamp(20px, 5vw, 22px)", fontWeight: 800, color: "#1e293b", margin: "0 0 6px" }}>Why Choose UpnaLoan?</h2>
             <p style={{ color: "#64748b", fontSize: 14, margin: 0 }}>Trusted by 5 lakh+ borrowers across India</p>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 18 }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "clamp(16px, 3vw, 24px)" }}>
             {[
               [Zap, "Instant Results", "Check eligibility in seconds with our accurate calculator.", "#fefce8", "#ca8a04"],
               [TrendingDown, "Lowest Rates", "Access exclusive home loan rates from 50+ lenders.", "#eff6ff", "#2563eb"],
@@ -251,7 +251,7 @@ export default function HLECalc() {
         </div>
 
         {/* INFO SECTIONS */}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))", gap: 20, marginTop: 32 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "clamp(20px, 4vw, 32px)", marginTop: 48 }}>
           {[
             ["What is Home Loan Eligibility?", "Home loan eligibility determines the maximum loan amount you can borrow based on your income, existing EMIs, credit score, age, employment stability, and property value."],
             ["How is Eligibility Calculated?", "Lenders use the FOIR (Fixed Obligation to Income Ratio) method. Your total monthly EMIs (including proposed home loan) should not exceed 50-60% of your monthly income."],
@@ -268,7 +268,7 @@ export default function HLECalc() {
         </div>
 
         {/* IMPACT + REDUCE GRID */}
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20, marginTop: 20, flexWrap: "wrap" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "clamp(20px, 4vw, 32px)", marginTop: 48 }}>
           {[
             ["What Impacts Your Eligibility?", [
               [DollarSign, "Monthly Income", "Higher income → Higher eligibility", "#eff6ff"],
@@ -301,8 +301,8 @@ export default function HLECalc() {
         </div>
 
         {/* FAQ */}
-        <div style={{ ...card, marginTop: 32 }}>
-          <h2 style={{ fontSize: 20, fontWeight: 800, color: "#1e293b", margin: "0 0 20px" }}>Frequently Asked Questions</h2>
+        <div style={{ ...card, marginTop: 48 }}>
+          <h2 style={{ fontSize: "clamp(20px, 5vw, 22px)", fontWeight: 800, color: "#1e293b", margin: "0 0 20px" }}>Frequently Asked Questions</h2>
           {faqs.map((faq, i) => (
             <div key={i} style={{ borderBottom: i < faqs.length - 1 ? "1px solid #f1f5f9" : "none" }}>
               <div
@@ -326,16 +326,16 @@ export default function HLECalc() {
 
         {/* CTA FOOTER BANNER */}
         <div style={{
-          margin: "36px 0 48px",
+          margin: "48px 0 0",
           background: "linear-gradient(135deg, #1d4ed8 0%, #2563eb 60%, #3b82f6 100%)",
-          borderRadius: 20, padding: "40px 48px",
+          borderRadius: 20, padding: "clamp(32px, 6vw, 48px) clamp(24px, 5vw, 48px)",
           display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 24
         }}>
           <div>
-            <h2 style={{ fontSize: 26, fontWeight: 800, color: "#fff", margin: "0 0 8px" }}>Ready to Apply for a Home Loan?</h2>
-            <p style={{ color: "rgba(255,255,255,0.75)", margin: 0, fontSize: 15 }}>Lowest interest rates · Quick approval · Expert assistance</p>
+            <h2 style={{ fontSize: "clamp(20px, 5vw, 26px)", fontWeight: 800, color: "#fff", margin: "0 0 8px" }}>Ready to Apply for a Home Loan?</h2>
+            <p style={{ color: "rgba(255,255,255,0.75)", margin: 0, fontSize: "clamp(13px, 4vw, 15px)" }}>Lowest interest rates · Quick approval · Expert assistance</p>
           </div>
-          <div style={{ display: "flex", gap: 12 }}>
+          <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
             <button style={{
               background: "#fff", color: "#2563eb", border: "none", borderRadius: 12,
               padding: "14px 28px", fontSize: 15, fontWeight: 800, cursor: "pointer", letterSpacing: "0.2px"

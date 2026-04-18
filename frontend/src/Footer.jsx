@@ -1,5 +1,6 @@
 // Footer.jsx
 import { Mail, Phone, MapPin } from "lucide-react";
+import { FaYoutube, FaLinkedinIn, FaInstagram } from "react-icons/fa";
 
 // ─── Paisabazaar-style bank card: logo LEFT | divider | name RIGHT ───────────
 const banks = [
@@ -208,12 +209,15 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* FOLLOW US - No lucide-react icons, using simple text */}
+          {/* FOLLOW US */}
           <div>
             <h4 style={{ fontSize: "16px", fontWeight: "700", color: "#f97316", marginBottom: "24px" }}>FOLLOW US</h4>
             <div style={{ display: "flex", gap: "15px", flexWrap: "wrap" }}>
-              {["Facebook", "Twitter", "LinkedIn", "Instagram"].map(social => (
-                <a key={social} href="#" style={{
+              <a 
+                href="#" 
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
@@ -223,9 +227,7 @@ export default function Footer() {
                   background: "rgba(255,255,255,0.1)",
                   color: "white",
                   textDecoration: "none",
-                  fontSize: "12px",
-                  fontWeight: "600",
-                  transition: "all 0.3s",
+                  transition: "all 0.3s ease",
                 }}
                 onMouseEnter={e => {
                   e.currentTarget.style.background = "#f97316";
@@ -235,9 +237,60 @@ export default function Footer() {
                   e.currentTarget.style.background = "rgba(255,255,255,0.1)";
                   e.currentTarget.style.transform = "translateY(0)";
                 }}>
-                  {social[0]}{social[1]}
-                </a>
-              ))}
+                <FaYoutube size={18} />
+              </a>
+              <a 
+                href="#" 
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  width: "38px",
+                  height: "38px",
+                  borderRadius: "50%",
+                  background: "rgba(255,255,255,0.1)",
+                  color: "white",
+                  textDecoration: "none",
+                  transition: "all 0.3s ease",
+                }}
+                onMouseEnter={e => {
+                  e.currentTarget.style.background = "#f97316";
+                  e.currentTarget.style.transform = "translateY(-3px)";
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.background = "rgba(255,255,255,0.1)";
+                  e.currentTarget.style.transform = "translateY(0)";
+                }}>
+                <FaLinkedinIn size={18} />
+              </a>
+              <a 
+                href="#" 
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  width: "38px",
+                  height: "38px",
+                  borderRadius: "50%",
+                  background: "rgba(255,255,255,0.1)",
+                  color: "white",
+                  textDecoration: "none",
+                  transition: "all 0.3s ease",
+                }}
+                onMouseEnter={e => {
+                  e.currentTarget.style.background = "#f97316";
+                  e.currentTarget.style.transform = "translateY(-3px)";
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.background = "rgba(255,255,255,0.1)";
+                  e.currentTarget.style.transform = "translateY(0)";
+                }}>
+                <FaInstagram size={18} />
+              </a>
             </div>
           </div>
         </div>

@@ -121,12 +121,12 @@ export default function FDCalc() {
       {/* HERO SECTION - simplified, no navbar */}
       <div style={{
         background: "linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #1e293b 100%)",
-        padding: "52px 48px 60px", position: "relative", overflow: "hidden"
+        padding: "clamp(40px, 8vw, 80px) clamp(16px, 5vw, 80px)", position: "relative", overflow: "hidden"
       }}>
         <div style={{ position: "absolute", right: 80, top: 20, width: 260, height: 260, borderRadius: "50%", background: "rgba(59,130,246,0.08)", pointerEvents: "none" }} />
         <div style={{ position: "absolute", right: 140, top: 60, width: 120, height: 120, borderRadius: "50%", background: "rgba(59,130,246,0.05)", pointerEvents: "none" }} />
-        <div style={{ maxWidth: 720 }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 14 }}>
+        <div style={{ maxWidth: 720, margin: "0 auto" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 14, flexWrap: "wrap" }}>
             <div style={{ background: "rgba(59,130,246,0.15)", borderRadius: 20, padding: "4px 12px" }}>
               <span style={{ color: "#93c5fd", fontSize: 12, fontWeight: 600 }}>FREE TOOL</span>
             </div>
@@ -134,16 +134,16 @@ export default function FDCalc() {
               <span style={{ color: "#86efac", fontSize: 12, fontWeight: 600 }}>INSTANT RESULT</span>
             </div>
           </div>
-          <h1 style={{ fontSize: 38, fontWeight: 800, color: "#fff", lineHeight: 1.2, margin: "0 0 14px", letterSpacing: "-0.5px" }}>
+          <h1 style={{ fontSize: "clamp(32px, 6vw, 48px)", fontWeight: 800, color: "#fff", lineHeight: 1.2, margin: "0 0 14px", letterSpacing: "-0.5px" }}>
             Fixed Deposit Calculator
           </h1>
-          <p style={{ color: "#94a3b8", fontSize: 16, lineHeight: 1.7, maxWidth: 580, margin: "0 0 24px" }}>
+          <p style={{ color: "#94a3b8", fontSize: "clamp(14px, 4vw, 16px)", lineHeight: 1.7, maxWidth: 580, margin: "0 0 24px" }}>
             Calculate your FD maturity amount and interest earnings instantly. Compare rates across banks and maximize your investment returns.
           </p>
-          <div style={{ display: "flex", gap: 28, flexWrap: "wrap" }}>
+          <div style={{ display: "flex", gap: "clamp(16px, 4vw, 28px)", flexWrap: "wrap" }}>
             {[["No Limit", "Max Amount"], ["6.75%", "Starting Rate"], ["10 Years", "Max Tenure"], ["Quarterly", "Compounding"]].map(([val, lbl]) => (
               <div key={lbl} style={{ textAlign: "center" }}>
-                <div style={{ fontSize: 22, fontWeight: 800, color: "#3b82f6", lineHeight: 1 }}>{val}</div>
+                <div style={{ fontSize: "clamp(18px, 4vw, 22px)", fontWeight: 800, color: "#3b82f6", lineHeight: 1 }}>{val}</div>
                 <div style={{ fontSize: 11, color: "#64748b", marginTop: 3, fontWeight: 500 }}>{lbl}</div>
               </div>
             ))}
@@ -152,7 +152,7 @@ export default function FDCalc() {
       </div>
 
       {/* BREADCRUMB */}
-      <div style={{ background: "#fff", borderBottom: "1px solid #f1f5f9", padding: "10px 48px" }}>
+      <div style={{ background: "#fff", borderBottom: "1px solid #f1f5f9", padding: "10px clamp(16px, 5vw, 48px)" }}>
         <span style={{ fontSize: 12, color: "#94a3b8", display: "inline-flex", alignItems: "center", gap: 4 }}><Home size={12} /> Home</span>
         <span style={{ fontSize: 12, color: "#cbd5e1", margin: "0 6px" }}>/</span>
         <span style={{ fontSize: 12, color: "#94a3b8", display: "inline-flex", alignItems: "center", gap: 4 }}><PiggyBank size={12} /> Investments</span>
@@ -160,10 +160,10 @@ export default function FDCalc() {
         <span style={{ fontSize: 12, color: "#2563eb", fontWeight: 500, display: "inline-flex", alignItems: "center", gap: 4 }}><Calculator size={12} /> Fixed Deposit Calculator</span>
       </div>
 
-      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "32px 16px", "@media (min-width: 768px)": { padding: "32px" } }}>
+      <div style={{ maxWidth: 1280, margin: "0 auto", padding: "clamp(32px, 6vw, 48px) clamp(16px, 5vw, 48px)" }}>
 
         {/* CALCULATOR SECTION */}
-        <div style={{ display: "flex", gap: 28, marginTop: 20, flexWrap: "wrap" }}>
+        <div style={{ display: "flex", gap: "clamp(24px, 4vw, 40px)", marginTop: 20, flexWrap: "wrap" }}>
 
           {/* LEFT: Inputs */}
           <div style={{ flex: "1 1 380px", ...card }}>
@@ -181,10 +181,10 @@ export default function FDCalc() {
             <h2 style={{ fontSize: 18, fontWeight: 700, color: "#1e293b", margin: "0 0 24px", display: "flex", alignItems: "center", gap: 8 }}><Calculator size={18} /> Maturity Details</h2>
             <div style={{ textAlign: "center", marginBottom: 32 }}>
               <div style={{ fontSize: 14, color: "#64748b", marginBottom: 8 }}>Maturity Amount</div>
-              <div style={{ fontSize: 36, fontWeight: 700, color: "#3b82f6", lineHeight: 1.2 }}>{formatINR(maturityAmount)}</div>
+              <div style={{ fontSize: "clamp(32px, 6vw, 42px)", fontWeight: 700, color: "#3b82f6", lineHeight: 1.2 }}>{formatINR(maturityAmount)}</div>
             </div>
 
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginBottom: 32 }}>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", gap: 16, marginBottom: 32 }}>
               {[
                 ["Principal Amount", formatINR(principal)],
                 ["Total Interest", formatINR(totalInterest)],
@@ -193,7 +193,7 @@ export default function FDCalc() {
               ].map(([label, val]) => (
                 <div key={label} style={{ padding: 16, background: "#f8fafc", borderRadius: 8, border: "1px solid #e2e8f0" }}>
                   <div style={{ fontSize: 12, color: "#64748b", marginBottom: 4 }}>{label}</div>
-                  <div style={{ fontSize: 18, fontWeight: 600, color: "#1e293b" }}>{val}</div>
+                  <div style={{ fontSize: "clamp(16px, 4vw, 18px)", fontWeight: 600, color: "#1e293b" }}>{val}</div>
                 </div>
               ))}
             </div>
@@ -202,7 +202,7 @@ export default function FDCalc() {
             <div style={{ marginBottom: 32, display: "flex", justifyContent: "center" }}>
               <DonutChart principal={principal} interest={totalInterest} />
             </div>
-            <div style={{ display: "flex", gap: 24, justifyContent: "center", marginTop: -8, marginBottom: 24 }}>
+            <div style={{ display: "flex", gap: 24, justifyContent: "center", marginTop: -8, marginBottom: 24, flexWrap: "wrap" }}>
               <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
                 <div style={{ width: 12, height: 12, background: "#2563eb", borderRadius: 2 }} />
                 <span style={{ fontSize: 14, color: "#64748b" }}>Principal</span>
@@ -213,7 +213,7 @@ export default function FDCalc() {
               </div>
             </div>
 
-            <button style={{ width: "100%", height: 48, background: "#3b82f6", color: "#fff", border: "none", borderRadius: 8, fontSize: 16, fontWeight: 600, cursor: "pointer", marginBottom: 24 }}
+            <button style={{ width: "100%", height: 48, background: "#3b82f6", color: "#fff", border: "none", borderRadius: 12, fontSize: 16, fontWeight: 600, cursor: "pointer", marginBottom: 24 }}
               onMouseEnter={e => {
                 e.target.style.background = "#2563eb";
                 e.target.style.transform = "translateY(-2px)";
@@ -229,9 +229,9 @@ export default function FDCalc() {
         </div>
 
         {/* Bank Offers */}
-        <div style={{ marginTop: 56 }}>
-          <h3 style={{ fontSize: 24, fontWeight: 700, color: "#1e293b", marginBottom: 24, display: "flex", alignItems: "center", gap: 8 }}><Building2 size={22} /> Current FD Rates</h3>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 20 }}>
+        <div style={{ marginTop: 48 }}>
+          <h3 style={{ fontSize: "clamp(20px, 5vw, 24px)", fontWeight: 700, color: "#1e293b", marginBottom: 24, display: "flex", alignItems: "center", gap: 8 }}><Building2 size={22} /> Current FD Rates</h3>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "clamp(16px, 3vw, 24px)" }}>
             {banks.map((bank, index) => (
               <div key={index} style={{ background: "#fff", borderRadius: 12, padding: 24, border: "1px solid #e2e8f0", transition: "all 0.3s", cursor: "pointer" }}
                 onMouseEnter={e => {
@@ -260,8 +260,8 @@ export default function FDCalc() {
         </div>
 
         {/* FAQ Section */}
-        <div style={{ marginTop: 56, marginBottom: 40 }}>
-          <h3 style={{ fontSize: 24, fontWeight: 700, color: "#1e293b", marginBottom: 24, display: "flex", alignItems: "center", gap: 8 }}><CircleHelp size={22} /> Frequently Asked Questions</h3>
+        <div style={{ marginTop: 48, marginBottom: 0 }}>
+          <h3 style={{ fontSize: "clamp(20px, 5vw, 24px)", fontWeight: 700, color: "#1e293b", marginBottom: 24, display: "flex", alignItems: "center", gap: 8 }}><CircleHelp size={22} /> Frequently Asked Questions</h3>
           <div style={{ display: "grid", gap: 16 }}>
             {faqs.map((faq, index) => {
               const [isOpen, setIsOpen] = useState(false);

@@ -119,13 +119,13 @@ export default function PofdCalc() {
       {/* HERO */}
       <div style={{
         background: "linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #1e293b 100%)",
-        padding: "52px 48px 60px",
+        padding: "clamp(40px, 8vw, 80px) clamp(16px, 5vw, 80px)",
         position: "relative", overflow: "hidden"
       }}>
         <div style={{ position: "absolute", right: 80, top: 20, width: 260, height: 260, borderRadius: "50%", background: "rgba(59,130,246,0.08)", pointerEvents: "none" }} />
         <div style={{ position: "absolute", right: 140, top: 60, width: 120, height: 120, borderRadius: "50%", background: "rgba(59,130,246,0.05)", pointerEvents: "none" }} />
-        <div style={{ maxWidth: 720 }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 14 }}>
+        <div style={{ maxWidth: 720, margin: "0 auto" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 14, flexWrap: "wrap" }}>
             <div style={{ background: "rgba(59,130,246,0.15)", borderRadius: 20, padding: "4px 12px" }}>
               <span style={{ color: "#93c5fd", fontSize: 12, fontWeight: 600 }}>FREE TOOL</span>
             </div>
@@ -133,16 +133,16 @@ export default function PofdCalc() {
               <span style={{ color: "#86efac", fontSize: 12, fontWeight: 600 }}>GOVT BACKED</span>
             </div>
           </div>
-          <h1 style={{ fontSize: 38, fontWeight: 800, color: "#fff", lineHeight: 1.2, margin: "0 0 14px", letterSpacing: "-0.5px" }}>
+          <h1 style={{ fontSize: "clamp(32px, 6vw, 48px)", fontWeight: 800, color: "#fff", lineHeight: 1.2, margin: "0 0 14px", letterSpacing: "-0.5px" }}>
             Post Office FD Calculator
           </h1>
-          <p style={{ color: "#94a3b8", fontSize: 16, lineHeight: 1.7, maxWidth: 580, margin: "0 0 24px" }}>
+          <p style={{ color: "#94a3b8", fontSize: "clamp(14px, 4vw, 16px)", lineHeight: 1.7, maxWidth: 580, margin: "0 0 24px" }}>
             Calculate your Post Office Fixed Deposit returns with guaranteed government backing. Compare schemes and maximize your safe investment returns.
           </p>
-          <div style={{ display: "flex", gap: 28, flexWrap: "wrap" }}>
+          <div style={{ display: "flex", gap: "clamp(16px, 4vw, 28px)", flexWrap: "wrap" }}>
             {[["No Limit", "Max Amount"], ["7.40%", "Highest Rate"], ["15 Years", "Max Tenure"], ["Quarterly", "Compounding"]].map(([val, lbl]) => (
               <div key={lbl} style={{ textAlign: "center" }}>
-                <div style={{ fontSize: 22, fontWeight: 800, color: "#3b82f6", lineHeight: 1 }}>{val}</div>
+                <div style={{ fontSize: "clamp(18px, 4vw, 22px)", fontWeight: 800, color: "#3b82f6", lineHeight: 1 }}>{val}</div>
                 <div style={{ fontSize: 11, color: "#64748b", marginTop: 3, fontWeight: 500 }}>{lbl}</div>
               </div>
             ))}
@@ -151,7 +151,7 @@ export default function PofdCalc() {
       </div>
 
       {/* BREADCRUMB */}
-      <div style={{ background: "#fff", borderBottom: "1px solid #f1f5f9", padding: "10px 48px" }}>
+      <div style={{ background: "#fff", borderBottom: "1px solid #f1f5f9", padding: "10px clamp(16px, 5vw, 48px)" }}>
         <span style={{ fontSize: 12, color: "#94a3b8" }}>Home</span>
         <span style={{ fontSize: 12, color: "#cbd5e1", margin: "0 6px" }}>›</span>
         <span style={{ fontSize: 12, color: "#94a3b8" }}>Investments</span>
@@ -159,10 +159,10 @@ export default function PofdCalc() {
         <span style={{ fontSize: 12, color: "#2563eb", fontWeight: 500 }}>Post Office FD Calculator</span>
       </div>
 
-      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 32px" }}>
+      <div style={{ maxWidth: 1280, margin: "0 auto", padding: "clamp(32px, 6vw, 48px) clamp(16px, 5vw, 48px)" }}>
 
         {/* CALCULATOR SECTION */}
-        <div style={{ display: "flex", gap: 28, marginTop: 36, flexWrap: "wrap" }}>
+        <div style={{ display: "flex", gap: "clamp(24px, 4vw, 40px)", marginTop: 20, flexWrap: "wrap" }}>
 
           {/* LEFT: Inputs */}
           <div style={{ flex: "1 1 380px", ...card }}>
@@ -185,12 +185,12 @@ export default function PofdCalc() {
           <div style={{ flex: "1 1 340px", display: "flex", flexDirection: "column", gap: 20 }}>
 
             {/* Maturity Highlight */}
-            <div style={{ background: "linear-gradient(135deg,#1d4ed8,#2563eb)", borderRadius: 16, padding: "28px 28px 24px", color: "#fff" }}>
+            <div style={{ background: "linear-gradient(135deg,#1d4ed8,#2563eb)", borderRadius: 16, padding: "clamp(20px, 4vw, 28px)", color: "#fff" }}>
               <p style={{ margin: "0 0 4px", fontSize: 13, opacity: 0.8, fontWeight: 500 }}>Maturity Amount</p>
-              <h1 style={{ margin: "0 0 20px", fontSize: 44, fontWeight: 800, letterSpacing: "-1px" }}>
+              <h1 style={{ margin: "0 0 20px", fontSize: "clamp(36px, 6vw, 44px)", fontWeight: 800, letterSpacing: "-1px" }}>
                 ₹{formatINR(maturityAmount)}
               </h1>
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(100px, 1fr))", gap: 12 }}>
                 {[
                   ["Principal", `₹${formatINR(principal)}`],
                   ["Interest", `₹${formatINR(totalInterest)}`],
@@ -204,9 +204,9 @@ export default function PofdCalc() {
             </div>
 
             {/* Donut + Legend */}
-            <div style={{ ...card, display: "flex", alignItems: "center", gap: 20 }}>
+            <div style={{ ...card, display: "flex", alignItems: "center", gap: 20, flexWrap: "wrap", justifyContent: "center" }}>
               <DonutChart principal={principal} interest={totalInterest} />
-              <div style={{ flex: 1 }}>
+              <div style={{ flex: 1, minWidth: 180 }}>
                 <p style={{ margin: "0 0 12px", fontSize: 13, fontWeight: 600, color: "#1e293b" }}>Breakup</p>
                 {[
                   ["Principal Amount", principal, "#2563eb"],
@@ -246,15 +246,15 @@ export default function PofdCalc() {
         </div>
 
         {/* SCHEMES */}
-        <div style={{ marginTop: 40 }}>
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 20 }}>
+        <div style={{ marginTop: 48 }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 20, flexWrap: "wrap", gap: 12 }}>
             <div>
-              <h2 style={{ fontSize: 22, fontWeight: 800, color: "#1e293b", margin: 0 }}>Post Office Schemes</h2>
+              <h2 style={{ fontSize: "clamp(20px, 5vw, 22px)", fontWeight: 800, color: "#1e293b", margin: 0 }}>Post Office Schemes</h2>
               <p style={{ color: "#64748b", fontSize: 14, margin: "4px 0 0" }}>Government-backed small savings schemes with guaranteed returns.</p>
             </div>
             <span style={{ fontSize: 13, color: "#2563eb", cursor: "pointer", fontWeight: 600 }}>View All Schemes →</span>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 18 }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "clamp(16px, 3vw, 24px)" }}>
             {schemes.map((scheme, i) => (
               <div key={i} style={{
                 ...card, padding: "22px 22px 20px", position: "relative",
@@ -293,9 +293,9 @@ export default function PofdCalc() {
         </div>
 
         {/* QUICK LINKS */}
-        <div style={{ ...card, marginTop: 36 }}>
+        <div style={{ ...card, marginTop: 48 }}>
           <h2 style={{ fontSize: 18, fontWeight: 700, color: "#1e293b", margin: "0 0 18px" }}>Quick Links</h2>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))", gap: 12 }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", gap: 12 }}>
             {[
               [BarChart2, "Interest Rates", "#eff6ff", "#2563eb"],
               [CheckSquare, "Schemes", "#f0fdf4", "#16a34a"],
@@ -321,12 +321,12 @@ export default function PofdCalc() {
         </div>
 
         {/* WHY CHOOSE */}
-        <div style={{ ...card, marginTop: 32 }}>
+        <div style={{ ...card, marginTop: 48 }}>
           <div style={{ textAlign: "center", marginBottom: 28 }}>
-            <h2 style={{ fontSize: 22, fontWeight: 800, color: "#1e293b", margin: "0 0 6px" }}>Why Invest in Post Office FD?</h2>
+            <h2 style={{ fontSize: "clamp(20px, 5vw, 22px)", fontWeight: 800, color: "#1e293b", margin: "0 0 6px" }}>Why Invest in Post Office FD?</h2>
             <p style={{ color: "#64748b", fontSize: 14, margin: 0 }}>India's most trusted small savings scheme</p>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 18 }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "clamp(16px, 3vw, 24px)" }}>
             {[
               [Zap, "Guaranteed Returns", "Fixed interest rates with no market risk.", "#fefce8", "#ca8a04"],
               [Lock, "Government Backed", "Fully backed by Government of India guarantee.", "#eff6ff", "#2563eb"],
@@ -345,7 +345,7 @@ export default function PofdCalc() {
         </div>
 
         {/* INFO SECTIONS */}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))", gap: 20, marginTop: 32 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "clamp(20px, 4vw, 32px)", marginTop: 48 }}>
           {[
             ["What is Post Office FD?", "Post Office Fixed Deposit (also known as Post Office Time Deposit) is a government-backed savings scheme offering guaranteed returns over fixed tenures of 1, 2, 3, and 5 years."],
             ["How to Calculate Post Office FD Returns?", "Post Office FD interest is calculated using quarterly compounding. Use our calculator to get accurate maturity amounts based on principal, rate, and tenure."],
@@ -362,8 +362,8 @@ export default function PofdCalc() {
         </div>
 
         {/* FAQ */}
-        <div style={{ ...card, marginTop: 32 }}>
-          <h2 style={{ fontSize: 20, fontWeight: 800, color: "#1e293b", margin: "0 0 20px" }}>Frequently Asked Questions</h2>
+        <div style={{ ...card, marginTop: 48 }}>
+          <h2 style={{ fontSize: "clamp(20px, 5vw, 22px)", fontWeight: 800, color: "#1e293b", margin: "0 0 20px" }}>Frequently Asked Questions</h2>
           {faqs.map((faq, i) => (
             <div key={i} style={{ borderBottom: i < faqs.length - 1 ? "1px solid #f1f5f9" : "none" }}>
               <div
@@ -387,16 +387,16 @@ export default function PofdCalc() {
 
         {/* CTA FOOTER BANNER */}
         <div style={{
-          margin: "36px 0 48px",
+          margin: "48px 0 0",
           background: "linear-gradient(135deg, #1d4ed8 0%, #2563eb 60%, #3b82f6 100%)",
-          borderRadius: 20, padding: "40px 48px",
+          borderRadius: 20, padding: "clamp(32px, 6vw, 48px) clamp(24px, 5vw, 48px)",
           display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 24
         }}>
           <div>
-            <h2 style={{ fontSize: 26, fontWeight: 800, color: "#fff", margin: "0 0 8px" }}>Start Your Safe Investment Journey</h2>
-            <p style={{ color: "rgba(255,255,255,0.75)", margin: 0, fontSize: 15 }}>Guaranteed returns · Government backed · Tax benefits · Nationwide access</p>
+            <h2 style={{ fontSize: "clamp(20px, 5vw, 26px)", fontWeight: 800, color: "#fff", margin: "0 0 8px" }}>Start Your Safe Investment Journey</h2>
+            <p style={{ color: "rgba(255,255,255,0.75)", margin: 0, fontSize: "clamp(13px, 4vw, 15px)" }}>Guaranteed returns · Government backed · Tax benefits · Nationwide access</p>
           </div>
-          <div style={{ display: "flex", gap: 12 }}>
+          <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
             <button style={{
               background: "#fff", color: "#2563eb", border: "none", borderRadius: 12,
               padding: "14px 28px", fontSize: 15, fontWeight: 800, cursor: "pointer", letterSpacing: "0.2px"

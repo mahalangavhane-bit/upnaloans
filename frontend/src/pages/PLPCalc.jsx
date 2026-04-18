@@ -162,13 +162,13 @@ export default function PLPCalc() {
       {/* HERO */}
       <div style={{
         background: "linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #1e293b 100%)",
-        padding: "52px 48px 60px",
+        padding: "clamp(40px, 8vw, 80px) clamp(16px, 5vw, 80px)",
         position: "relative", overflow: "hidden"
       }}>
         <div style={{ position: "absolute", right: 80, top: 20, width: 260, height: 260, borderRadius: "50%", background: "rgba(59,130,246,0.08)", pointerEvents: "none" }} />
         <div style={{ position: "absolute", right: 140, top: 60, width: 120, height: 120, borderRadius: "50%", background: "rgba(59,130,246,0.05)", pointerEvents: "none" }} />
-        <div style={{ maxWidth: 720 }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 14 }}>
+        <div style={{ maxWidth: 720, margin: "0 auto" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 14, flexWrap: "wrap" }}>
             <div style={{ background: "rgba(59,130,246,0.15)", borderRadius: 20, padding: "4px 12px" }}>
               <span style={{ color: "#93c5fd", fontSize: 12, fontWeight: 600 }}>FREE TOOL</span>
             </div>
@@ -176,16 +176,16 @@ export default function PLPCalc() {
               <span style={{ color: "#86efac", fontSize: 12, fontWeight: 600 }}>SAVE INTEREST</span>
             </div>
           </div>
-          <h1 style={{ fontSize: 38, fontWeight: 800, color: "#fff", lineHeight: 1.2, margin: "0 0 14px", letterSpacing: "-0.5px" }}>
+          <h1 style={{ fontSize: "clamp(32px, 6vw, 48px)", fontWeight: 800, color: "#fff", lineHeight: 1.2, margin: "0 0 14px", letterSpacing: "-0.5px" }}>
             Personal Loan Prepayment Calculator
           </h1>
-          <p style={{ color: "#94a3b8", fontSize: 16, lineHeight: 1.7, maxWidth: 580, margin: "0 0 24px" }}>
+          <p style={{ color: "#94a3b8", fontSize: "clamp(14px, 4vw, 16px)", lineHeight: 1.7, maxWidth: 580, margin: "0 0 24px" }}>
             Calculate your savings on personal loan prepayment. Compare EMI reduction vs tenure reduction options and find the best prepayment strategy.
           </p>
-          <div style={{ display: "flex", gap: 28, flexWrap: "wrap" }}>
+          <div style={{ display: "flex", gap: "clamp(16px, 4vw, 28px)", flexWrap: "wrap" }}>
             {[["Rs.40 Lakh", "Max Loan Amount"], ["10.50%", "Starting Interest Rate"], ["72 Months", "Max Tenure"], ["Nil Charges", "After 12 Months"]].map(([val, lbl]) => (
               <div key={lbl} style={{ textAlign: "center" }}>
-                <div style={{ fontSize: 22, fontWeight: 800, color: "#3b82f6", lineHeight: 1 }}>{val}</div>
+                <div style={{ fontSize: "clamp(18px, 4vw, 22px)", fontWeight: 800, color: "#3b82f6", lineHeight: 1 }}>{val}</div>
                 <div style={{ fontSize: 11, color: "#64748b", marginTop: 3, fontWeight: 500 }}>{lbl}</div>
               </div>
             ))}
@@ -194,7 +194,7 @@ export default function PLPCalc() {
       </div>
 
       {/* BREADCRUMB */}
-      <div style={{ background: "#fff", borderBottom: "1px solid #f1f5f9", padding: "10px 48px" }}>
+      <div style={{ background: "#fff", borderBottom: "1px solid #f1f5f9", padding: "10px clamp(16px, 5vw, 48px)" }}>
         <span style={{ fontSize: 12, color: "#94a3b8" }}>Home</span>
         <span style={{ fontSize: 12, color: "#cbd5e1", margin: "0 6px" }}>›</span>
         <span style={{ fontSize: 12, color: "#94a3b8" }}>Personal Loan</span>
@@ -202,10 +202,10 @@ export default function PLPCalc() {
         <span style={{ fontSize: 12, color: "#2563eb", fontWeight: 500 }}>Prepayment Calculator</span>
       </div>
 
-      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 32px" }}>
+      <div style={{ maxWidth: 1280, margin: "0 auto", padding: "clamp(32px, 6vw, 48px) clamp(16px, 5vw, 48px)" }}>
 
         {/* CALCULATOR SECTION */}
-        <div style={{ display: "flex", gap: 28, marginTop: 36, flexWrap: "wrap" }}>
+        <div style={{ display: "flex", gap: "clamp(24px, 4vw, 40px)", marginTop: 20, flexWrap: "wrap" }}>
 
           {/* LEFT: Inputs */}
           <div style={{ flex: "1 1 380px", ...card }}>
@@ -227,13 +227,13 @@ export default function PLPCalc() {
             
             <div style={{ marginTop: 20 }}>
               <label style={{ fontSize: 13, color: "#64748b", fontWeight: 500, display: "block", marginBottom: 8 }}>Prepayment Option</label>
-              <div style={{ display: "flex", gap: 12 }}>
+              <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
                 <button
                   onClick={() => setReduceTenure(true)}
                   style={{
                     flex: 1, padding: "12px", borderRadius: 8, border: "1.5px solid #e2e8f0",
                     background: reduceTenure ? "#2563eb" : "#fff", color: reduceTenure ? "#fff" : "#1e293b",
-                    fontSize: 13, fontWeight: 600, cursor: "pointer", transition: "all 0.2s"
+                    fontSize: 13, fontWeight: 600, cursor: "pointer", transition: "all 0.2s", minWidth: 120
                   }}
                 >
                   Reduce Tenure
@@ -243,7 +243,7 @@ export default function PLPCalc() {
                   style={{
                     flex: 1, padding: "12px", borderRadius: 8, border: "1.5px solid #e2e8f0",
                     background: !reduceTenure ? "#2563eb" : "#fff", color: !reduceTenure ? "#fff" : "#1e293b",
-                    fontSize: 13, fontWeight: 600, cursor: "pointer", transition: "all 0.2s"
+                    fontSize: 13, fontWeight: 600, cursor: "pointer", transition: "all 0.2s", minWidth: 120
                   }}
                 >
                   Reduce EMI
@@ -263,12 +263,12 @@ export default function PLPCalc() {
           <div style={{ flex: "1 1 340px", display: "flex", flexDirection: "column", gap: 20 }}>
 
             {/* Savings Highlight */}
-            <div style={{ background: "linear-gradient(135deg,#16a34a,#22c55e)", borderRadius: 16, padding: "28px 28px 24px", color: "#fff" }}>
+            <div style={{ background: "linear-gradient(135deg,#16a34a,#22c55e)", borderRadius: 16, padding: "clamp(20px, 4vw, 28px)", color: "#fff" }}>
               <p style={{ margin: "0 0 4px", fontSize: 13, opacity: 0.8, fontWeight: 500 }}>Total Savings</p>
-              <h1 style={{ margin: "0 0 20px", fontSize: 44, fontWeight: 800, letterSpacing: "-1px" }}>
+              <h1 style={{ margin: "0 0 20px", fontSize: "clamp(36px, 6vw, 44px)", fontWeight: 800, letterSpacing: "-1px" }}>
                 ₹{formatINR(Math.max(0, totalSavings))}
               </h1>
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 12 }}>
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(100px, 1fr))", gap: 12 }}>
                 {[
                   ["Interest Saved", `₹${formatINR(Math.max(0, originalTotalInterest - newTotalInterest))}`],
                   ["Prepayment Fee", `₹${formatINR(prepaymentFee)}`],
@@ -292,9 +292,9 @@ export default function PLPCalc() {
                   ["Total Interest", `₹${formatINR(originalTotalInterest)}`, `₹${formatINR(newTotalInterest)}`],
                   ["Total Amount", `₹${formatINR(originalTotalAmount)}`, `₹${formatINR(newTotalAmount)}`]
                 ].map(([label, before, after]) => (
-                  <div key={label} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "12px", background: "#f8fafc", borderRadius: 8 }}>
-                    <span style={{ fontSize: 13, fontWeight: 600, color: "#1e293b", width: 100 }}>{label}</span>
-                    <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+                  <div key={label} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "12px", background: "#f8fafc", borderRadius: 8, flexWrap: "wrap", gap: 8 }}>
+                    <span style={{ fontSize: 13, fontWeight: 600, color: "#1e293b", minWidth: 100 }}>{label}</span>
+                    <div style={{ display: "flex", alignItems: "center", gap: 16, flexWrap: "wrap" }}>
                       <div style={{ textAlign: "right" }}>
                         <div style={{ fontSize: 11, color: "#94a3b8" }}>Before</div>
                         <div style={{ fontSize: 13, fontWeight: 600, color: "#64748b" }}>{before}</div>
@@ -331,15 +331,15 @@ export default function PLPCalc() {
         </div>
 
         {/* BANK OFFERS */}
-        <div style={{ marginTop: 40 }}>
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 20 }}>
+        <div style={{ marginTop: 48 }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 20, flexWrap: "wrap", gap: 12 }}>
             <div>
-              <h2 style={{ fontSize: 22, fontWeight: 800, color: "#1e293b", margin: 0 }}>Best Personal Loan Offers</h2>
+              <h2 style={{ fontSize: "clamp(20px, 5vw, 22px)", fontWeight: 800, color: "#1e293b", margin: 0 }}>Best Personal Loan Offers</h2>
               <p style={{ color: "#64748b", fontSize: 14, margin: "4px 0 0" }}>Compare prepayment charges from top banks & NBFCs</p>
             </div>
             <span style={{ fontSize: 13, color: "#2563eb", cursor: "pointer", fontWeight: 600 }}>View All Offers →</span>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 18 }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "clamp(16px, 3vw, 24px)" }}>
             {banks.map((b, i) => (
               <div key={i} style={{
                 ...card, padding: "22px 22px 20px", position: "relative",
@@ -381,9 +381,9 @@ export default function PLPCalc() {
         </div>
 
         {/* QUICK LINKS */}
-        <div style={{ ...card, marginTop: 36 }}>
+        <div style={{ ...card, marginTop: 48 }}>
           <h2 style={{ fontSize: 18, fontWeight: 700, color: "#1e293b", margin: "0 0 18px" }}>Quick Links</h2>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))", gap: 12 }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", gap: 12 }}>
             {[
               [BarChart2, "Interest Rates", "#eff6ff", "#2563eb"],
               [CheckSquare, "Prepayment", "#f0fdf4", "#16a34a"],
@@ -409,8 +409,8 @@ export default function PLPCalc() {
         </div>
 
         {/* FAQ */}
-        <div style={{ ...card, marginTop: 32 }}>
-          <h2 style={{ fontSize: 20, fontWeight: 800, color: "#1e293b", margin: "0 0 20px" }}>Frequently Asked Questions</h2>
+        <div style={{ ...card, marginTop: 48 }}>
+          <h2 style={{ fontSize: "clamp(20px, 5vw, 22px)", fontWeight: 800, color: "#1e293b", margin: "0 0 20px" }}>Frequently Asked Questions</h2>
           {faqs.map((faq, i) => (
             <div key={i} style={{ borderBottom: i < faqs.length - 1 ? "1px solid #f1f5f9" : "none" }}>
               <div
@@ -434,16 +434,16 @@ export default function PLPCalc() {
 
         {/* CTA FOOTER BANNER */}
         <div style={{
-          margin: "36px 0 48px",
+          margin: "48px 0 0",
           background: "linear-gradient(135deg, #1d4ed8 0%, #2563eb 60%, #3b82f6 100%)",
-          borderRadius: 20, padding: "40px 48px",
+          borderRadius: 20, padding: "clamp(32px, 6vw, 48px) clamp(24px, 5vw, 48px)",
           display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 24
         }}>
           <div>
-            <h2 style={{ fontSize: 26, fontWeight: 800, color: "#fff", margin: "0 0 8px" }}>Ready to Save on Interest?</h2>
-            <p style={{ color: "rgba(255,255,255,0.75)", margin: 0, fontSize: 15 }}>Calculate prepayment savings · Compare charges · Make informed decisions</p>
+            <h2 style={{ fontSize: "clamp(20px, 5vw, 26px)", fontWeight: 800, color: "#fff", margin: "0 0 8px" }}>Ready to Save on Interest?</h2>
+            <p style={{ color: "rgba(255,255,255,0.75)", margin: 0, fontSize: "clamp(13px, 4vw, 15px)" }}>Calculate prepayment savings · Compare charges · Make informed decisions</p>
           </div>
-          <div style={{ display: "flex", gap: 12 }}>
+          <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
             <button style={{
               background: "#fff", color: "#2563eb", border: "none", borderRadius: 12,
               padding: "14px 28px", fontSize: 15, fontWeight: 800, cursor: "pointer", letterSpacing: "0.2px"

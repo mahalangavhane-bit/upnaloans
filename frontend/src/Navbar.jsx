@@ -3,11 +3,10 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 const navLinks = [
-  { label: "Home",           to: "/"               },
-  { label: "Properties",     to: "/properties"     },
-  { label: "EMI Calculator", to: "/emi-calculator" },
-  { label: "Contact",        to: "/contact"        },
-  { label: "Support & Help", to: "/support"        },
+  { label: "Home",           to: "home"               },
+  { label: "EMI Calculator", to: "emi" },
+  { label: "Contact",        to: "contact"        },
+  { label: "Support & Help", to: "support"        },
 ];
 
 export default function Navbar() {
@@ -48,23 +47,24 @@ export default function Navbar() {
             const isActive = pathname === link.to;
             return (
               <li key={link.label}>
-                <Link
-                  to={link.to}
-                  style={{
-                    fontSize: 14,
-                    fontWeight: 600,
-                    color: isActive ? "#f97316" : "white",
-                    cursor: "pointer",
-                    textDecoration: "none",
-                    fontFamily: "'Sora', sans-serif",
-                    transition: "color .2s",
-                    borderBottom: isActive ? "2px solid #f97316" : "2px solid transparent",
-                    paddingBottom: 2,
-                  }}
-                  onMouseEnter={e => e.currentTarget.style.color = "#f97316"}
-                  onMouseLeave={e => e.currentTarget.style.color = isActive ? "#f97316" : "white"}
->{link.label}</Link>
-              </li>
+              <span onClick={() => {
+                const section = document.getElementById(link.to);
+                if (section) {
+                  section.scrollIntoView({behavior:"smooth"});
+                }
+              }}
+              style={{
+                fontSize: 14,
+                fontWeight: 600,
+                color: "white",
+                cursor: "pointer",
+                textDecoration: "none",
+                fontFamily: "'Sora' sans-serif"
+              }}
+              >
+                {link.label}
+                </span>
+                </li>
             );
           })}
         </ul>
@@ -115,17 +115,23 @@ export default function Navbar() {
           display: "flex", flexDirection: "column", gap: 16
         }}>
           {navLinks.map(link => (
-            <Link
-              key={link.label}
-              to={link.to}
-              onClick={() => setMenuOpen(false)}
-              style={{
-                fontSize: 15, fontWeight: 600,
-                color: pathname === link.to ? "#f97316" : "white",
-                textDecoration: "none",
-                fontFamily: "'Sora', sans-serif"
-              }}
-            >{link.label}</Link>
+            <span key={link.label}
+            onClick={() => {
+              const section = document.getElementById(link.to);
+              if (section) {
+                section.scrollIntoView({behavior : "smooth"});
+              } 
+              setMenuOpen(false);
+            }}
+            style={{
+              fontSize: 15,
+              fontWeight: 600,
+              color: "white",
+              cursor: "pointer",
+              fontFamily: "'Sora', sans-serif"
+            }}
+            >
+            </span>
           ))}
         </div>
       )}
