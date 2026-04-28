@@ -161,9 +161,11 @@ export default function HLPCalc() {
 
       {/* HERO */}
       <div style={{
-        background: "linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #1e293b 100%)",
+        background: "#ffffff",
         padding: "clamp(40px, 8vw, 80px) clamp(16px, 5vw, 80px)",
-        position: "relative", overflow: "hidden"
+        position: "relative", 
+        overflow: "hidden",
+        borderBottom: "1px solid #f1f5f9"
       }}>
         <div style={{ position: "absolute", right: 80, top: 20, width: 260, height: 260, borderRadius: "50%", background: "rgba(59,130,246,0.08)", pointerEvents: "none" }} />
         <div style={{ position: "absolute", right: 140, top: 60, width: 120, height: 120, borderRadius: "50%", background: "rgba(59,130,246,0.05)", pointerEvents: "none" }} />
@@ -176,8 +178,14 @@ export default function HLPCalc() {
               <span style={{ color: "#86efac", fontSize: 12, fontWeight: 600 }}>ZERO CHARGES</span>
             </div>
           </div>
-          <h1 style={{ fontSize: "clamp(32px, 6vw, 48px)", fontWeight: 800, color: "#fff", lineHeight: 1.2, margin: "0 0 14px", letterSpacing: "-0.5px" }}>
-            Home Loan Prepayment Calculator
+          <h1 style={{ 
+            fontSize: "clamp(32px, 6vw, 48px)", 
+            fontWeight: 800,  
+            lineHeight: 1.2, 
+            margin: "0 0 14px", 
+            letterSpacing: "-0.5px" }}>
+            <span style={{color:"#111827"}}>Home Loan{" "}</span> 
+            <span style={{color:"#f97316"}}>Prepayment Calculator</span>
           </h1>
           <p style={{ color: "#94a3b8", fontSize: "clamp(14px, 4vw, 16px)", lineHeight: 1.7, maxWidth: 580, margin: "0 0 24px" }}>
             Calculate your savings on home loan prepayment. Most banks offer zero prepayment charges. Save lakhs on interest and become debt-free faster.

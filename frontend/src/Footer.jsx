@@ -5,61 +5,61 @@ import { FaYoutube, FaLinkedinIn, FaInstagram } from "react-icons/fa";
 // ─── Paisabazaar-style bank card: logo LEFT | divider | name RIGHT ───────────
 const banks = [
   { name: "SBI",               slug: "sbi",                color: "#0047ab" },
-  { name: "HDFC Bank",         slug: "hdfc-bank",          color: "#0052cc" },
-  { name: "ICICI Bank",        slug: "icici-bank",         color: "#ff6600" },
-  { name: "Axis Bank",         slug: "axis-bank",          color: "#8b1538" },
+  { name: "HDFC Bank",         slug: "hdfs",          color: "#0052cc" },
+  { name: "ICICI Bank",        slug: "icic",         color: "#ff6600" },
+  { name: "Axis Bank",         slug: "axis",          color: "#8b1538" },
   { name: "PNB",               slug: "pnb",                color: "#0066b3" },
-  { name: "Kotak Mahindra",    slug: "kotak-mahindra-bank",color: "#cc0000" },
-  { name: "Bank of Baroda",    slug: "bank-of-baroda",     color: "#ff6600" },
-  { name: "Bank of India",     slug: "bank-of-india",      color: "#0066b3" },
-  { name: "Canara Bank",       slug: "canara-bank",        color: "#0066b3" },
-  { name: "Union Bank",        slug: "union-bank",         color: "#cc0000" },
-  { name: "IDFC First Bank",   slug: "idfc-first-bank",    color: "#0066b3" },
-  { name: "IndusInd Bank",     slug: "indusind-bank",      color: "#0066b3" },
-  { name: "Bandhan Bank",      slug: "bandhan-bank",       color: "#cc0000" },
-  { name: "Central Bank",      slug: "central-bank",       color: "#0066b3" },
-  { name: "Indian Bank",       slug: "indian-bank",        color: "#0066b3" },
-  { name: "UCO Bank",          slug: "uco-bank",           color: "#cc0000" },
-  { name: "IDBI Bank",         slug: "idbi-bank",          color: "#0066b3" },
-  { name: "RBL Bank",          slug: "rbl-bank",           color: "#cc0000" },
-  { name: "Yes Bank",          slug: "yes-bank",           color: "#0066b3" },
-  { name: "Federal Bank",      slug: "federal-bank",       color: "#cc0000" },
-  { name: "South Indian Bank", slug: "south-indian-bank",  color: "#0066b3" },
-  { name: "Karur Vysya Bank",  slug: "karur-vysya",        color: "#cc0000" },
-  { name: "Deutsche Bank",     slug: "deutsche-bank",      color: "#0066b3" },
-  { name: "Standard Chartered",slug: "standard-chartered", color: "#0066b3" },
+  { name: "Kotak Mahindra",    slug: "kotak",color: "#cc0000" },
+  { name: "Bank of Baroda",    slug: "bankofbaroda",     color: "#ff6600" },
+  { name: "Bank of India",     slug: "bankofindia",      color: "#0066b3" },
+  { name: "Canara Bank",       slug: "canara",        color: "#0066b3" },
+  { name: "Union Bank",        slug: "union",         color: "#cc0000" },
+  { name: "IDFC First Bank",   slug: "idfcfirst",    color: "#0066b3" },
+  { name: "IndusInd Bank",     slug: "indusind",      color: "#0066b3" },
+  { name: "Bandhan Bank",      slug: "bandhan",       color: "#cc0000" },
+  { name: "Central Bank",      slug: "central",       color: "#0066b3" },
+  { name: "Indian Bank",       slug: "indian",        color: "#0066b3" },
+  { name: "UCO Bank",          slug: "uco",           color: "#cc0000" },
+  { name: "IDBI Bank",         slug: "idbi",          color: "#0066b3" },
+  { name: "RBL Bank",          slug: "rbl",           color: "#cc0000" },
+  { name: "Yes Bank",          slug: "yes",           color: "#0066b3" },
+  { name: "Federal Bank",      slug: "federal",       color: "#cc0000" },
+  { name: "South Indian Bank", slug: "southindian",  color: "#0066b3" },
+  { name: "Karur Vysya Bank",  slug: "karur vysya",        color: "#cc0000" },
+  { name: "Deutsche Bank",     slug: "deutsche",      color: "#0066b3" },
+  { name: "Standard Chartered",slug: "standardCharted", color: "#0066b3" },
   { name: "Citibank",          slug: "citibank",           color: "#cc0000" },
   { name: "HSBC",              slug: "hsbc",               color: "#cc0000" },
-  { name: "Aditya Birla",      slug: "aditya-birla-capital",color: "#cc0000"},
-  { name: "Bajaj Finance",     slug: "bajaj-finance",      color: "#003399" },
-  { name: "Tata Capital",      slug: "tata-capital",       color: "#003399" },
-  { name: "Mahindra Finance",  slug: "mahindra-finance",   color: "#0066b3" },
+  { name: "Aditya Birla",      slug: "adityabirla",color: "#cc0000"},
+  { name: "Bajaj Finance",     slug: "bajaj",      color: "#003399" },
+  { name: "Tata Capital",      slug: "tatacapital",       color: "#003399" },
+  { name: "Mahindra Finance",  slug: "mahindrafinance",   color: "#0066b3" },
   { name: "Fullerton India",   slug: "fullerton",          color: "#cc0000" },
-  { name: "Muthoot Finance",   slug: "muthoot-finance",    color: "#c8980a" },
+  { name: "Muthoot Finance",   slug: "muthoot",    color: "#c8980a" },
   { name: "Manappuram",        slug: "manappuram",         color: "#cc0000" },
-  { name: "Cholamandalam",     slug: "cholamandalam",      color: "#0066b3" },
-  { name: "Shriram Finance",   slug: "shriram-finance",    color: "#cc0000" },
-  { name: "IIFL Finance",      slug: "iifl-finance",       color: "#0066b3" },
-  { name: "Ujjivan SF Bank",   slug: "ujjivan-small-finance",color:"#cc0000"},
-  { name: "AU Small Finance",  slug: "au-small-finance",   color: "#0066b3" },
-  { name: "HDB Financial",     slug: "hdb-financial",      color: "#cc0000" },
-  { name: "LIC Housing",       slug: "lic-hfl",            color: "#0066b3" },
+  { name: "Cholamandalam",     slug: "Cholamandalam",      color: "#0066b3" },
+  { name: "Shriram Finance",   slug: "SHRIRAMFIN",    color: "#cc0000" },
+  { name: "IIFL Finance",      slug: "IIFL",       color: "#0066b3" },
+  { name: "Ujjivan SF Bank",   slug: "ujjivan",color:"#cc0000"},
+  { name: "AU Small Finance",  slug: "AU-Small",   color: "#0066b3" },
+  { name: "HDB Financial",     slug: "HDBFS",      color: "#cc0000" },
+  { name: "LIC Housing",       slug: "lichfl",            color: "#0066b3" },
   { name: "PNB Housing",       slug: "pnb-housing",        color: "#0066b3" },
-  { name: "DHFL",              slug: "dhfl",               color: "#0066b3" },
-  { name: "KreditBee",         slug: "kreditbee",          color: "#5b2d8e" },
+  { name: "DHFL",              slug: "DHFL",               color: "#0066b3" },
+  { name: "KreditBee",         slug: "KreditBee",          color: "#5b2d8e" },
   { name: "MoneyView",         slug: "moneyview",          color: "#00897b" },
-  { name: "Lendingkart",       slug: "lendingkart",        color: "#cc0000" },
-  { name: "Navi Finserv",      slug: "navi",               color: "#003399" },
-  { name: "Piramal Finance",   slug: "piramal-capital",    color: "#003399" },
+  { name: "Lendingkart",       slug: "LendindKart",        color: "#cc0000" },
+  { name: "Navi Finserv",      slug: "navi-finserv",               color: "#003399" },
+  { name: "Piramal Finance",   slug: "Piramal",    color: "#003399" },
   { name: "Fibe",              slug: "fibe",               color: "#7c3aed" },
-  { name: "InCred Finance",    slug: "incred",             color: "#cc0000" },
+  { name: "InCred Finance",    slug: "InCred",             color: "#cc0000" },
   { name: "Stashfin",          slug: "stashfin",           color: "#003399" },
-  { name: "Jana Bank",         slug: "jana-bank",          color: "#cc0000" },
-  { name: "Five Star Finance", slug: "five-star",          color: "#cc0000" },
-  { name: "SREI Finance",      slug: "srei",               color: "#0066b3" },
+  { name: "Jana Bank",         slug: "Jana",          color: "#cc0000" },
+  { name: "Five Star Finance", slug: "five_star",          color: "#cc0000" },
+  { name: "SREI Finance",      slug: "SREI",               color: "#0066b3" },
 ];
 
-const LOGO_BASE = "https://static.paisabazaar.com/media/icons/lenders/";
+const LOGO_BASE = "/bank-logos/";
 
 // SVG initials fallback
 function InitialsBadge({ name, color }) {
@@ -78,61 +78,43 @@ function InitialsBadge({ name, color }) {
 function BankCard({ bank }) {
   return (
     <div style={{
-      display: "flex",
+      background: "#fafafa",
+      border: "1px solid #e5e7eb",
+      borderRadius: "4px",
+      height: "68px",
+      width: "160px",
+      display:"flex",
       alignItems: "center",
-      background: "#ffffff",
-      border: "1px solid rgba(249,115,22,0.3)",
-      borderRadius: 8,
-      overflow: "hidden",
-      height: 50,
+      justifyContent: "center",
+      padding: "10 12px",
       cursor: "pointer",
-      transition: "all 0.3s",
-      boxShadow: "0 2px 6px rgba(0,0,0,0.1)",
+      transition: "all 0.25s ease",
+      boxShadow: "0 1px 4px rgba(0,0,0,0.04)",
+      margin: "0 auto",
     }}
     onMouseEnter={e => {
-      e.currentTarget.style.background = "rgba(249,115,22,0.04)";
+      e.currentTarget.style.boxShadow = "0 6px 16px rgba(0,0,0,0.08)";
       e.currentTarget.style.transform = "translateY(-2px)";
     }}
     onMouseLeave={e => {
-      e.currentTarget.style.background = "#ffffff";
+      e.currentTarget.style.boxShadow = "0 2px 8px rgba(0,0,0,0.05)";
       e.currentTarget.style.transform = "translateY(0)";
     }}>
-      <div style={{
-        width: 52,
-        minWidth: 52,
-        height: "100%",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        backgroundColor: "#fafafa",
-        borderRight: "1px solid rgba(249,115,22,0.15)",
-      }}>
         <img
           src={`${LOGO_BASE}${bank.slug}.png`}
           alt={bank.name}
-          style={{ maxWidth: 38, maxHeight: 26, objectFit: "contain", display: "block" }}
+          style={{
+            maxWidth:"120px",
+            maxHeight:"34px",
+             width: "auto",
+             height: "auto",
+             objectFit: "contain", 
+             display: "block",
+            }}
           onError={e => {
-            e.currentTarget.style.display = "none";
-            e.currentTarget.nextSibling.style.display = "block";
+            e.currentTarget.style.display = "none"
           }}
         />
-        <span style={{ display: "none" }}>
-          <InitialsBadge name={bank.name} color={bank.color} />
-        </span>
-      </div>
-      <div style={{ flex: 1, padding: "0 10px" }}>
-        <span style={{
-          display: "block",
-          color: "#1a1a1a",
-          fontSize: bank.name.length > 14 ? "9px" : bank.name.length > 9 ? "10px" : "11px",
-          fontWeight: 500,
-          whiteSpace: "nowrap",
-          overflow: "hidden",
-          textOverflow: "ellipsis",
-        }}>
-          {bank.name}
-        </span>
-      </div>
     </div>
   );
 }
@@ -155,16 +137,30 @@ export default function Footer() {
       <div style={{ padding: "40px 80px 40px", borderTop: "1px solid rgba(249,115,22,0.2)" }}>
         
         {/* Logo */}
-        <div style={{ display: "flex", justifyContent: "center", marginBottom: 48 }}>
+        <div style={{ display: "flex", justifyContent: "flex-start", marginBottom: 48, maxWidth:"1400px", margin: "0 auto 48px", paddingLeft:"10px" }}>
           <img src="/logo.png" alt="Upna Loan" style={{ height: 100, objectFit: "contain" }} />
         </div>
 
         {/* 4 Column Grid */}
-        <div className="footer-grid" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "40px", maxWidth: "1200px", margin: "0 auto 50px", textAlign: "left" }}>
+        <div className="footer-grid"
+         style={{ display: "grid",
+           gridTemplateColumns: "repeat(4,1fr)", 
+           gap: "80px", 
+           maxWidth: "1200px",
+           margin: "0 auto 50px",
+           alignItems:"flex-start",
+           paddingTop: "10px" }}>
           
           {/* COMPANY */}
           <div>
-            <h4 style={{ fontSize: "16px", fontWeight: "700", color: "#f97316", marginBottom: "24px" }}>COMPANY</h4>
+            <h4 style={{ 
+              fontSize: "13px", 
+              fontWeight: "700", 
+              color: "#ffffff", 
+              marginBottom: "18px",
+              letterSpacing:"1px",
+              textTransform: "uppercase"
+              }}>COMPANY</h4>
             <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
               {["Properties", "About", "For Buyers", "For Developers", "Testimonials"].map(item => (
                 <li key={item} style={{ marginBottom: "12px" }}>
@@ -178,7 +174,13 @@ export default function Footer() {
 
           {/* EXPLORE */}
           <div>
-            <h4 style={{ fontSize: "16px", fontWeight: "700", color: "#f97316", marginBottom: "24px" }}>EXPLORE</h4>
+            <h4 style={{ 
+              fontSize: "13px", 
+              fontWeight: "700", 
+              color: "#ffffff", 
+              marginBottom: "18px",
+              letterSpacing:"1px",
+              textTransform:"uppercase", }}>EXPLORE</h4>
             <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
               {["News", "Home Loans", "Home Interior", "Sitemap", "AI Smart Search"].map(item => (
                 <li key={item} style={{ marginBottom: "12px" }}>
@@ -192,9 +194,19 @@ export default function Footer() {
 
           {/* CONTACT */}
           <div>
-            <h4 style={{ fontSize: "16px", fontWeight: "700", color: "#f97316", marginBottom: "24px" }}>CONTACT</h4>
+            <h4 style={{ 
+              fontSize: "13px", 
+              fontWeight: "700", 
+              color: "#ffffff", 
+              marginBottom: "18px",
+              letterSpacing: "1px",
+              textTransform: "uppercase", }}>CONTACT</h4>
             <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
-              <li style={{ marginBottom: "14px", display: "flex", alignItems: "center", gap: "10px" }}>
+              <li style={{ 
+                marginBottom: "14px", 
+                display: "flex", 
+                alignItems: "center", 
+                gap: "10px" }}>
                 <Phone size={14} style={{ color: "#f97316" }} />
                 <span style={{ color: "rgba(255,255,255,0.7)", fontSize: "13px" }}>+91 9999999999</span>
               </li>
@@ -211,7 +223,13 @@ export default function Footer() {
 
           {/* FOLLOW US */}
           <div>
-            <h4 style={{ fontSize: "16px", fontWeight: "700", color: "#f97316", marginBottom: "24px" }}>FOLLOW US</h4>
+            <h4 style={{ 
+              fontSize: "13px", 
+              fontWeight: "700", 
+              color: "#ffffff", 
+              marginBottom: "18px",
+              letterSpacing: "1px",
+              textTransform: "uppercase",}}>FOLLOW US</h4>
             <div style={{ display: "flex", gap: "15px", flexWrap: "wrap" }}>
               <a 
                 href="#" 

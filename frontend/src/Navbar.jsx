@@ -149,11 +149,11 @@ export default function Navbar() {
         overflow: "hidden",
         whiteSpace: "nowrap"
       }}>
-        <span style={{ display: "inline-block", animation: "ticker 28s linear infinite" }}>
-          🏠 We've got you covered in{" "}<strong style={{ color: "#facc15" }}>Mumbai</strong>{" "}— Verified Properties • Home Loans • Interiors • Legal Support &nbsp;&nbsp;&nbsp;&nbsp;
-          🏠 We've got you covered in{" "}<strong style={{ color: "#facc15" }}>Mumbai</strong>{" "}— Verified Properties • Home Loans • Interiors • Legal Support &nbsp;&nbsp;&nbsp;&nbsp;
-          🏠 We've got you covered in{" "}<strong style={{ color: "#facc15" }}>Mumbai</strong>{" "}— Verified Properties • Home Loans • Interiors • Legal Support &nbsp;&nbsp;&nbsp;&nbsp;
-        </span>
+       <span style={{ display: "inline-block", animation: "ticker 28s linear infinite" }}>
+  ✨ Looking after your interests • Quick and Easy Loans • Upna Loan &nbsp;&nbsp;&nbsp;&nbsp;
+  ✨ Looking after your interests • Quick and Easy Loans • Upna Loan &nbsp;&nbsp;&nbsp;&nbsp;
+  ✨ Looking after your interests • Quick and Easy Loans • Upna Loan &nbsp;&nbsp;&nbsp;&nbsp;
+</span>
       </div>
 
       <style>{`
