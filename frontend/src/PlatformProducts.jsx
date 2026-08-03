@@ -15,7 +15,7 @@ import {
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import "./FinancialCategories.css";
+import "./Financialcategories.css";
 
 /**
  * All loan / financial category data.
