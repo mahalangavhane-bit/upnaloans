@@ -31,7 +31,7 @@ export const globalStyles = `
 
   /* SECTION COMMONS */
   .section { padding: 80px 0; }
-  .section-inner { padding: 0 64px; }
+  .section-inner { padding: 0 32px; }
   .section-label { display: inline-block; background: var(--yellow-light); color: #92400e; padding: 4px 12px; border-radius: 6px; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .5px; margin-bottom: 12px; border: 1px solid #fed7aa; }
   .section-title { font-family: 'Sora', sans-serif; font-size: 32px; font-weight: 700; color: var(--brown-dark); margin-bottom: 10px; line-height: 1.25; }
   .section-sub { font-size: 15px; color: var(--muted); max-width: 580px; line-height: 1.7; margin-bottom: 48px; }
@@ -73,7 +73,7 @@ export const globalStyles = `
 
   /* PRODUCTS */
   .products-section { background: var(--gray-bg); }
-  .products-grid { display: grid; grid-template-columns: repeat(8, 1fr); gap: 14px; padding: 0 64px; }
+  .products-grid { display: grid; grid-template-columns: repeat(8, 1fr); gap: 14px; padding: 0; }
   .product-card { background: white; border: 1.5px solid #fed7aa; border-radius: 14px; padding: 18px 10px; text-align: center; cursor: pointer; transition: all .2s; display: flex; flex-direction: column; align-items: center; gap: 10px; }
   .product-card:hover { border-color: var(--orange); transform: translateY(-4px); box-shadow: 0 8px 24px rgba(249,115,22,.12); }
   .product-icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 22px; }
@@ -81,7 +81,7 @@ export const globalStyles = `
 
   /* BANKS */
   .banks-section { background: white; }
-  .banks-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; padding: 0 64px; }
+  .banks-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; padding: 0; }
   .bank-card { border: 1.5px solid #fed7aa; border-radius: 16px; padding: 22px; transition: all .2s; cursor: pointer; position: relative; }
   .bank-card:hover { border-color: var(--orange); box-shadow: 0 6px 24px rgba(249,115,22,.12); }
   .bank-card.featured { border-color: var(--orange); }
@@ -103,7 +103,7 @@ export const globalStyles = `
 
   /* EMI CALCULATOR */
   .calc-section { background: var(--gray-bg); }
-  .calc-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: start; padding: 0 64px; }
+  .calc-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: start; padding: 0; }
   .calc-box { background: white; border-radius: 20px; padding: 36px; box-shadow: 0 4px 24px rgba(249,115,22,.08); border: 1.5px solid #fed7aa; }
   .calc-field { margin-bottom: 28px; }
   .calc-field-label { display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 14px; font-weight: 500; }
@@ -205,6 +205,12 @@ export const globalStyles = `
     .steps-grid::before { display: none; }
     .testi-grid { grid-template-columns: 1fr; }
     .products-grid { grid-template-columns: repeat(4, 1fr); }
+  }
+  @media (max-width: 768px) {
+    .section-inner { padding-left: 16px; padding-right: 16px; }
+    .testi-section { padding-left: 16px; padding-right: 16px; }
+    .calc-page-section { padding-left: 16px !important; padding-right: 16px !important; }
+    .page-container-h { padding-left: 16px !important; padding-right: 16px !important; }
   }
   @media (max-width: 580px) {
     .banks-grid, .why-grid, .steps-grid { grid-template-columns: 1fr; }

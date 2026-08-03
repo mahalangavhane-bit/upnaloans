@@ -21,69 +21,55 @@ export default function EmiCalculator() {
   };
 
   return (
-    <section className="section calc-section" style={{ padding: "80px 0", background: "#f8fafc" }}>
-      <div className="section-inner" style={{ 
-        maxWidth: "1280px", 
-        margin: "0 auto", 
-        paddingLeft: "clamp(16px, 5vw, 80px)", 
-        paddingRight: "clamp(16px, 5vw, 80px)" 
+    <section className="section calc-section" style={{ padding: "48px 0", background: "#f8fafc" }}>
+      <div className="section-inner" style={{
+        maxWidth: "1120px",
+        margin: "0 auto",
       }}>
-        <div className="section-label" style={{ 
-          display: "flex", 
-          alignItems: "center", 
-          gap: "8px", 
-          fontSize: "13px", 
-          fontWeight: "600",
-          textTransform: "uppercase",
-          letterSpacing: "1px",
-          color: "#f97316",
-          marginBottom: "16px"
-        }}>
-          <Calculator size={16} />
-          Smart Tools
-        </div>
-        <h2 className="section-title" style={{ 
-          fontSize: "clamp(28px, 5vw, 40px)", 
+        <h2 className="section-title" style={{
+          fontSize: "clamp(22px, 3.5vw, 30px)",
           fontWeight: "700",
-          marginBottom: "12px",
+          marginBottom: "6px",
           lineHeight: "1.2",
           color: "#0f172a",
           letterSpacing: "-0.5px"
         }}>EMI Calculator</h2>
-        <p className="section-sub" style={{ 
-          fontSize: "16px", 
-          color: "#64748b", 
-          marginBottom: "48px",
+        <p className="section-sub" style={{
+          fontSize: "14px",
+          color: "#64748b",
+          marginBottom: "24px",
           maxWidth: "600px",
           lineHeight: "1.5"
-        }}>Instantly calculate your monthly EMI, total interest and plan your loan repayment with ease.</p>
+        }}>Instantly calculate your monthly EMI, total interest and plan your loan repayment.</p>
 
-        <div className="calc-wrapper" style={{ 
-          display: "grid", 
-          gridTemplateColumns: "1fr", 
-          gap: "24px",
-          alignItems: "start"
+        <div className="calc-wrapper" style={{
+          display: "grid",
+          gridTemplateColumns: "1fr 1fr",
+          gap: "18px",
+          alignItems: "stretch"
         }}>
           {/* ── Input side ── */}
-          <div className="calc-box" style={{ 
-            background: "#ffffff", 
-            borderRadius: "24px", 
-            padding: "clamp(24px, 4vw, 32px)", 
-            boxShadow: "0 20px 35px -10px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.02)",
-            border: "1px solid #e2e8f0"
+          <div className="calc-box" style={{
+            background: "#ffffff",
+            borderRadius: "18px",
+            padding: "clamp(18px, 2.5vw, 24px)",
+            boxShadow: "0 12px 24px -10px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.02)",
+            border: "1px solid #e2e8f0",
+            display: "flex",
+            flexDirection: "column"
           }}>
-            <div className="calc-field" style={{ marginBottom: "28px" }}>
-              <div className="calc-field-label" style={{ 
-                display: "flex", 
-                alignItems: "center", 
+            <div className="calc-field" style={{ marginBottom: "18px" }}>
+              <div className="calc-field-label" style={{
+                display: "flex",
+                alignItems: "center",
                 justifyContent: "space-between",
-                marginBottom: "12px",
-                fontSize: "14px",
+                marginBottom: "8px",
+                fontSize: "12.5px",
                 fontWeight: "500",
                 color: "#334155"
               }}>
                 <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
-                  <IndianRupee size={14} />
+                  <IndianRupee size={13} />
                   Loan Amount
                 </div>
                 <span style={{ fontWeight: "700", color: "#f97316" }}>{fmtINR(loanAmt)}</span>
@@ -93,24 +79,24 @@ export default function EmiCalculator() {
                 value={loanAmt} onChange={e => setLoanAmt(+e.target.value)}
                 style={{
                   width: "100%",
-                  height: "6px",
+                  height: "5px",
                   borderRadius: "10px",
                   WebkitAppearance: "none",
                   ...rangeStyle(loanAmt, 100000, 10000000)
                 }} />
             </div>
-            <div className="calc-field" style={{ marginBottom: "28px" }}>
-              <div className="calc-field-label" style={{ 
-                display: "flex", 
-                alignItems: "center", 
+            <div className="calc-field" style={{ marginBottom: "18px" }}>
+              <div className="calc-field-label" style={{
+                display: "flex",
+                alignItems: "center",
                 justifyContent: "space-between",
-                marginBottom: "12px",
-                fontSize: "14px",
+                marginBottom: "8px",
+                fontSize: "12.5px",
                 fontWeight: "500",
                 color: "#334155"
               }}>
                 <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
-                  <Percent size={14} />
+                  <Percent size={13} />
                   Interest Rate
                 </div>
                 <span style={{ fontWeight: "700", color: "#f97316" }}>{rate.toFixed(1)}%</span>
@@ -120,24 +106,24 @@ export default function EmiCalculator() {
                 value={rate} onChange={e => setRate(+e.target.value)}
                 style={{
                   width: "100%",
-                  height: "6px",
+                  height: "5px",
                   borderRadius: "10px",
                   WebkitAppearance: "none",
                   ...rangeStyle(rate, 6, 20)
                 }} />
             </div>
-            <div className="calc-field" style={{ marginBottom: "32px" }}>
-              <div className="calc-field-label" style={{ 
-                display: "flex", 
-                alignItems: "center", 
+            <div className="calc-field" style={{ marginBottom: "20px" }}>
+              <div className="calc-field-label" style={{
+                display: "flex",
+                alignItems: "center",
                 justifyContent: "space-between",
-                marginBottom: "12px",
-                fontSize: "14px",
+                marginBottom: "8px",
+                fontSize: "12.5px",
                 fontWeight: "500",
                 color: "#334155"
               }}>
                 <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
-                  <Calendar size={14} />
+                  <Calendar size={13} />
                   Loan Tenure
                 </div>
                 <span style={{ fontWeight: "700", color: "#f97316" }}>{tenure} Years</span>
@@ -147,60 +133,63 @@ export default function EmiCalculator() {
                 value={tenure} onChange={e => setTenure(+e.target.value)}
                 style={{
                   width: "100%",
-                  height: "6px",
+                  height: "5px",
                   borderRadius: "10px",
                   WebkitAppearance: "none",
                   ...rangeStyle(tenure, 1, 30)
                 }} />
             </div>
-            <button className="btn-solid" style={{ 
-              width: "100%", 
-              height: 52,
+            <button className="btn-solid" style={{
+              width: "100%",
+              height: 44,
+              marginTop: "auto",
               background: "#f97316",
               color: "#ffffff",
               border: "none",
-              borderRadius: "14px",
-              fontSize: "16px",
+              borderRadius: "12px",
+              fontSize: "14px",
               fontWeight: "600",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              gap: "10px",
+              gap: "8px",
               cursor: "pointer",
               transition: "all 0.2s ease"
             }}>
-              <TrendingUp size={16} />
+              <TrendingUp size={15} />
               Calculate EMI
             </button>
           </div>
 
           {/* ── Result side ── */}
-          <div className="calc-result" style={{ 
-            background: "linear-gradient(135deg, #0f172a 0%, #1e293b 100%)", 
-            borderRadius: "24px", 
-            padding: "clamp(24px, 4vw, 32px)", 
+          <div className="calc-result" style={{
+            background: "linear-gradient(135deg, #0f172a 0%, #1e293b 100%)",
+            borderRadius: "18px",
+            padding: "clamp(18px, 2.5vw, 24px)",
             color: "#ffffff",
-            boxShadow: "0 20px 35px -10px rgba(0,0,0,0.15)"
+            boxShadow: "0 12px 24px -10px rgba(0,0,0,0.15)",
+            display: "flex",
+            flexDirection: "column"
           }}>
-            <div className="result-label" style={{ 
-              fontSize: "13px", 
-              textTransform: "uppercase", 
+            <div className="result-label" style={{
+              fontSize: "11px",
+              textTransform: "uppercase",
               letterSpacing: "1px",
               opacity: "0.7",
-              marginBottom: "8px"
+              marginBottom: "4px"
             }}>Monthly EMI</div>
-            <div className="result-emi" style={{ 
-              fontSize: "clamp(36px, 6vw, 52px)", 
-              fontWeight: "800", 
-              marginBottom: "24px",
+            <div className="result-emi" style={{
+              fontSize: "clamp(28px, 4vw, 38px)",
+              fontWeight: "800",
+              marginBottom: "16px",
               color: "#f97316",
               letterSpacing: "-1px"
             }}>₹{Math.round(emi).toLocaleString("en-IN")}</div>
-            <div className="result-grid" style={{ 
-              display: "grid", 
-              gridTemplateColumns: "repeat(2, 1fr)", 
-              gap: "16px",
-              marginBottom: "28px"
+            <div className="result-grid" style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(2, 1fr)",
+              gap: "12px",
+              marginBottom: "18px"
             }}>
               {[
                 ["Principal Amount", fmtINR(loanAmt), IndianRupee],
@@ -208,70 +197,71 @@ export default function EmiCalculator() {
                 ["Total Payment",    fmtINR(total), TrendingUp],
                 ["Interest %",       (100 - pPct) + "%", null],
               ].map(([label, val, Icon]) => (
-                <div className="result-item" key={label} style={{ 
+                <div className="result-item" key={label} style={{
                   borderBottom: "1px solid rgba(255,255,255,0.1)",
-                  paddingBottom: "10px"
+                  paddingBottom: "8px"
                 }}>
-                  <div className="result-item-label" style={{ 
-                    display: "flex", 
-                    alignItems: "center", 
-                    gap: "6px",
-                    fontSize: "11px",
+                  <div className="result-item-label" style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "5px",
+                    fontSize: "10px",
                     opacity: "0.7",
-                    marginBottom: "6px"
+                    marginBottom: "4px"
                   }}>
-                    {Icon && <Icon size={12} />}
+                    {Icon && <Icon size={11} />}
                     {label}
                   </div>
-                  <div className="result-item-val" style={{ 
-                    fontSize: "16px", 
-                    fontWeight: "700" 
+                  <div className="result-item-val" style={{
+                    fontSize: "14px",
+                    fontWeight: "700"
                   }}>{val}</div>
                 </div>
               ))}
             </div>
-            <div className="pie-bar" style={{ 
-              display: "flex", 
-              height: "8px", 
-              borderRadius: "10px", 
+            <div className="pie-bar" style={{
+              display: "flex",
+              height: "6px",
+              borderRadius: "10px",
               overflow: "hidden",
-              marginBottom: "16px",
+              marginBottom: "10px",
               background: "rgba(255,255,255,0.1)"
             }}>
               <div className="pie-principal" style={{ width: pPct + "%", background: "#f97316" }} />
               <div className="pie-interest" style={{ flex: 1, background: "rgba(255,255,255,0.2)" }} />
             </div>
-            <div className="pie-legend" style={{ 
-              display: "flex", 
-              gap: "24px",
-              marginBottom: "32px"
+            <div className="pie-legend" style={{
+              display: "flex",
+              gap: "18px",
+              marginBottom: "18px"
             }}>
-              <div className="legend-item" style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "12px" }}>
-                <div className="legend-dot" style={{ width: "10px", height: "10px", borderRadius: "50%", background: "#f97316" }} />
+              <div className="legend-item" style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "11px" }}>
+                <div className="legend-dot" style={{ width: "9px", height: "9px", borderRadius: "50%", background: "#f97316" }} />
                 <span>Principal</span>
               </div>
-              <div className="legend-item" style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "12px" }}>
-                <div className="legend-dot" style={{ width: "10px", height: "10px", borderRadius: "50%", background: "rgba(255,255,255,0.3)" }} />
+              <div className="legend-item" style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "11px" }}>
+                <div className="legend-dot" style={{ width: "9px", height: "9px", borderRadius: "50%", background: "rgba(255,255,255,0.3)" }} />
                 <span>Interest</span>
               </div>
             </div>
-            <button className="btn-apply-calc" style={{ 
+            <button className="btn-apply-calc" style={{
               width: "100%",
+              marginTop: "auto",
               background: "rgba(255,255,255,0.1)",
               border: "1px solid rgba(255,255,255,0.2)",
               color: "#ffffff",
-              padding: "14px",
-              borderRadius: "14px",
-              fontSize: "14px",
+              padding: "12px",
+              borderRadius: "12px",
+              fontSize: "13px",
               fontWeight: "600",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              gap: "10px",
+              gap: "8px",
               cursor: "pointer",
               transition: "all 0.2s ease"
             }}>
-              <CheckCircle size={16} />
+              <CheckCircle size={15} />
               Apply for This Loan →
             </button>
           </div>

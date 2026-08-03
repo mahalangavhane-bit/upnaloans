@@ -43,7 +43,7 @@ export default function Login() {
   };
 
   return (
-    <div style={{ minHeight: "80vh", padding: "60px 32px", maxWidth: 480, margin: "0 auto" }}>
+    <div className="page-container-h" style={{ minHeight: "80vh", padding: "60px 32px", maxWidth: 480, margin: "0 auto" }}>
       <h1 style={{ fontFamily: "'Sora', sans-serif", fontSize: 28, marginBottom: 24 }}>Login</h1>
 
       {message && (

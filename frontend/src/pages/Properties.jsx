@@ -15,6 +15,7 @@ const filters = ["All", "Residential", "Commercial", "Plot", "Industrial"];
 export default function Properties() {
   return (
     <div
+      className="page-container-h"
       style={{
         padding: "60px 32px",
         minHeight: "80vh",
@@ -258,16 +259,6 @@ export default function Properties() {
         </div>
       </div>
 
-      {/* Responsive padding fix */}
-      <style>
-        {`
-          @media (max-width: 768px) {
-            div[style*="padding: 60px 32px"] {
-              padding: 60px 16px !important;
-            }
-          }
-        `}
-      </style>
     </div>
   );
 }

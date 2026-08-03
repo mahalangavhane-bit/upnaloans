@@ -1,4 +1,5 @@
 // TopBanks.jsx
+import "./TopBanks.css";
 const banks = [
   { code: "SBI",   name: "State Bank of India", type: "PSU Bank",     rate: "7.10%", emi: "₹69,240", max: "₹5 Cr",  process: "3–5 Days", logo: "#1e40af", featured: true  },
   { code: "HDFC",  name: "HDFC Bank",            type: "Private Bank", rate: "7.40%", emi: "₹70,963", max: "₹10 Cr", process: "48 Hrs",   logo: "#dc2626", featured: false },
@@ -39,7 +40,6 @@ export default function TopBanks() {
   return (
     <section className="section banks-section">
       <div className="section-inner">
-        <div className="section-label">Compare Banks</div>
         <h2 className="section-title">Top Banks for Home Loan</h2>
         <p className="section-sub">Compare rates, EMI and eligibility from leading banks &amp; NBFCs — choose what's best for you.</p>
         <div className="banks-grid">

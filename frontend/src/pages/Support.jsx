@@ -108,29 +108,13 @@ export default function Support() {
     >
       {/* Header */}
       <div
+        className="page-container-h"
         style={{
           background: "linear-gradient(135deg,#1a0800,#2d1200)",
-          padding: "60px 16px",
+          padding: "60px 32px",
           textAlign: "center",
         }}
       >
-        <div
-          style={{
-            display: "inline-block",
-            background: "rgba(249,115,22,.15)",
-            color: "#fb923c",
-            padding: "4px 12px",
-            borderRadius: 6,
-            fontSize: 12,
-            fontWeight: 600,
-            textTransform: "uppercase",
-            letterSpacing: ".5px",
-            marginBottom: 14,
-            border: "1px solid rgba(249,115,22,.3)",
-          }}
-        >
-          Help Center
-        </div>
 
         <h1
           style={{
@@ -199,6 +183,7 @@ export default function Support() {
 
       {/* Body */}
       <div
+        className="page-container-h"
         style={{
           padding: "60px 32px",
           maxWidth: 1100,
@@ -496,16 +481,6 @@ export default function Support() {
         </div>
       </div>
 
-      {/* Responsive */}
-      <style>
-        {`
-          @media (max-width: 768px) {
-            div[style*="padding: 60px 32px"] {
-              padding: 60px 16px !important;
-            }
-          }
-        `}
-      </style>
     </div>
   );
 }

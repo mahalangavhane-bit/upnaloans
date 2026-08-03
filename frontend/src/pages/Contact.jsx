@@ -8,7 +8,6 @@ import {
   Clock,
   CheckCircle,
   Send,
-  ArrowRight,
 } from "lucide-react";
 
 export default function Contact() {
@@ -58,11 +57,11 @@ export default function Contact() {
 
   const inputStyle = {
     width: "100%",
-    height: 44,
+    height: 38,
     border: "1.5px solid #fed7aa",
     borderRadius: 8,
-    padding: "0 14px",
-    fontSize: 14,
+    padding: "0 12px",
+    fontSize: 13.5,
     fontFamily: "'DM Sans',sans-serif",
     color: "#1c1108",
     background: "white",
@@ -73,72 +72,55 @@ export default function Contact() {
 
   const contacts = [
     {
-      icon: <Phone size={20} />,
+      icon: <Phone size={17} />,
       label: "Call Us",
       value: "+91 9999 999 999",
-      sub: "Mon–Sat, 9am–7pm",
     },
     {
-      icon: <Mail size={20} />,
+      icon: <Mail size={17} />,
       label: "Email Us",
       value: "info@upnaloans.com",
-      sub: "Reply within 24 hrs",
     },
     {
-      icon: <MapPin size={20} />,
+      icon: <MapPin size={17} />,
       label: "Visit Us",
       value: "Mumbai, Maharashtra",
-      sub: "By appointment",
     },
     {
-      icon: <MessageCircle size={20} />,
+      icon: <MessageCircle size={17} />,
       label: "WhatsApp",
       value: "+91 9999 999 999",
-      sub: "Chat anytime",
     },
   ];
 
   return (
     <div
       style={{
-        minHeight: "80vh",
+        height: "100vh",
+        display: "flex",
+        flexDirection: "column",
         background: "#fafaf8",
         boxSizing: "border-box",
+        overflow: "hidden",
       }}
     >
       {/* Header */}
       <div
+        className="page-container-h"
         style={{
+          flexShrink: 0,
           background: "linear-gradient(135deg,#1a0800,#2d1200)",
-          padding: "52px 16px",
+          padding: "22px 32px 20px",
           textAlign: "center",
         }}
       >
-        <div
-          style={{
-            display: "inline-block",
-            background: "rgba(249,115,22,.15)",
-            color: "#fb923c",
-            padding: "4px 12px",
-            borderRadius: 6,
-            fontSize: 12,
-            fontWeight: 600,
-            textTransform: "uppercase",
-            letterSpacing: ".5px",
-            marginBottom: 14,
-            border: "1px solid rgba(249,115,22,.3)",
-          }}
-        >
-          Get In Touch
-        </div>
-
         <h1
           style={{
             fontFamily: "'Sora',sans-serif",
-            fontSize: 36,
+            fontSize: 26,
             fontWeight: 700,
             color: "white",
-            marginBottom: 12,
+            margin: "0 0 6px",
           }}
         >
           Contact Us
@@ -147,10 +129,10 @@ export default function Contact() {
         <p
           style={{
             color: "rgba(255,255,255,.65)",
-            fontSize: 15,
+            fontSize: 13,
             maxWidth: 480,
             margin: "0 auto",
-            lineHeight: 1.7,
+            lineHeight: 1.5,
           }}
         >
           Have questions about a loan? Our advisors are ready to help you get
@@ -160,30 +142,41 @@ export default function Contact() {
 
       {/* Body */}
       <div
+        className="contact-body page-container-h"
         style={{
-          padding: "60px 32px",
+          flex: 1,
+          minHeight: 0,
+          padding: "20px 32px",
           maxWidth: 1100,
+          width: "100%",
           margin: "0 auto",
           boxSizing: "border-box",
         }}
       >
         <div
+          className="contact-grid"
           style={{
             display: "grid",
-            gridTemplateColumns: "1fr 1.4fr",
-            gap: 48,
-            alignItems: "start",
+            gridTemplateColumns: "1fr 1.3fr",
+            gap: 24,
+            height: "100%",
           }}
         >
           {/* Left */}
-          <div>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              minHeight: 0,
+            }}
+          >
             <h2
               style={{
                 fontFamily: "'Sora',sans-serif",
-                fontSize: 22,
+                fontSize: 17,
                 fontWeight: 700,
                 color: "#1a0800",
-                marginBottom: 24,
+                margin: "0 0 12px",
               }}
             >
               Reach Us Directly
@@ -191,10 +184,10 @@ export default function Contact() {
 
             <div
               style={{
-                display: "flex",
-                flexDirection: "column",
-                gap: 16,
-                marginBottom: 36,
+                display: "grid",
+                gridTemplateColumns: "1fr 1fr",
+                gap: 10,
+                marginBottom: 14,
               }}
             >
               {contacts.map((c) => (
@@ -202,12 +195,12 @@ export default function Contact() {
                   key={c.label}
                   style={{
                     display: "flex",
-                    alignItems: "center",
-                    gap: 16,
+                    flexDirection: "column",
+                    gap: 8,
                     background: "white",
                     border: "1.5px solid #fed7aa",
-                    borderRadius: 14,
-                    padding: "18px 20px",
+                    borderRadius: 12,
+                    padding: "12px 14px",
                     cursor: "pointer",
                     transition: "all .2s",
                   }}
@@ -223,9 +216,9 @@ export default function Contact() {
                 >
                   <div
                     style={{
-                      width: 48,
-                      height: 48,
-                      borderRadius: 12,
+                      width: 34,
+                      height: 34,
+                      borderRadius: 9,
                       background: "#fff7ed",
                       display: "flex",
                       alignItems: "center",
@@ -238,20 +231,20 @@ export default function Contact() {
                   </div>
 
                   <div>
-                    <div style={{ fontSize: 13, color: "#78716c" }}>
+                    <div style={{ fontSize: 11, color: "#78716c" }}>
                       {c.label}
                     </div>
                     <div
                       style={{
-                        fontSize: 15,
+                        fontSize: 12.5,
                         fontWeight: 600,
                         color: "#1a0800",
+                        whiteSpace: "nowrap",
+                        overflow: "hidden",
+                        textOverflow: "ellipsis",
                       }}
                     >
                       {c.value}
-                    </div>
-                    <div style={{ fontSize: 12, color: "#78716c" }}>
-                      {c.sub}
                     </div>
                   </div>
                 </div>
@@ -263,23 +256,28 @@ export default function Contact() {
               style={{
                 background: "linear-gradient(135deg,#fff7ed,#fefce8)",
                 border: "1.5px solid #fed7aa",
-                borderRadius: 14,
-                padding: "22px 24px",
+                borderRadius: 12,
+                padding: "14px 16px",
+                flex: 1,
+                minHeight: 0,
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
               }}
             >
               <h4
                 style={{
                   fontFamily: "'Sora',sans-serif",
-                  fontSize: 15,
+                  fontSize: 13,
                   fontWeight: 700,
                   color: "#1a0800",
-                  marginBottom: 14,
+                  margin: "0 0 10px",
                   display: "flex",
                   alignItems: "center",
-                  gap: 8,
+                  gap: 7,
                 }}
               >
-                <Clock size={16} /> Office Hours
+                <Clock size={14} /> Office Hours
               </h4>
 
               {[
@@ -292,8 +290,8 @@ export default function Contact() {
                   style={{
                     display: "flex",
                     justifyContent: "space-between",
-                    fontSize: 13.5,
-                    marginBottom: 8,
+                    fontSize: 12,
+                    marginBottom: 6,
                   }}
                 >
                   <span style={{ color: "#78716c" }}>{day}</span>
@@ -309,44 +307,67 @@ export default function Contact() {
           <div
             style={{
               background: "white",
-              borderRadius: 20,
-              padding: 36,
+              borderRadius: 18,
+              padding: 24,
               border: "1.5px solid #fed7aa",
               boxShadow: "0 8px 32px rgba(249,115,22,.1)",
+              display: "flex",
+              flexDirection: "column",
+              minHeight: 0,
+              overflow: "hidden",
             }}
           >
             {submitted ? (
-              <div style={{ textAlign: "center", padding: "40px 0" }}>
-                <CheckCircle size={56} color="#f97316" style={{ marginBottom: 20 }} />
+              <div
+                style={{
+                  flex: 1,
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  textAlign: "center",
+                }}
+              >
+                <CheckCircle
+                  size={44}
+                  color="#f97316"
+                  style={{ marginBottom: 14 }}
+                />
 
                 <h3
                   style={{
                     fontFamily: "'Sora',sans-serif",
-                    fontSize: 22,
+                    fontSize: 19,
                     fontWeight: 700,
                     color: "#1a0800",
-                    marginBottom: 12,
+                    margin: "0 0 8px",
                   }}
                 >
                   Message Sent!
                 </h3>
 
-                <p style={{ color: "#78716c", lineHeight: 1.7 }}>
-                  Thank you for reaching out. Our advisor will contact you within
-                  24 hours.
+                <p
+                  style={{
+                    color: "#78716c",
+                    lineHeight: 1.6,
+                    fontSize: 13.5,
+                    maxWidth: 320,
+                  }}
+                >
+                  Thank you for reaching out. Our advisor will contact you
+                  within 24 hours.
                 </p>
 
                 <button
                   onClick={() => setSubmitted(false)}
                   style={{
-                    marginTop: 24,
-                    background:
-                      "linear-gradient(135deg,#f97316,#eab308)",
+                    marginTop: 18,
+                    background: "linear-gradient(135deg,#f97316,#eab308)",
                     color: "white",
                     border: "none",
                     borderRadius: 10,
-                    padding: "12px 28px",
-                    fontSize: 15,
+                    padding: "10px 24px",
+                    fontSize: 13.5,
                     fontWeight: 600,
                     cursor: "pointer",
                     fontFamily: "'DM Sans',sans-serif",
@@ -360,10 +381,10 @@ export default function Contact() {
                 <h2
                   style={{
                     fontFamily: "'Sora',sans-serif",
-                    fontSize: 22,
+                    fontSize: 17,
                     fontWeight: 700,
                     color: "#1a0800",
-                    marginBottom: 24,
+                    margin: "0 0 14px",
                   }}
                 >
                   Send Us a Message
@@ -373,8 +394,8 @@ export default function Contact() {
                   style={{
                     display: "grid",
                     gridTemplateColumns: "1fr 1fr",
-                    gap: 14,
-                    marginBottom: 14,
+                    gap: 12,
+                    marginBottom: 12,
                   }}
                 >
                   <div>
@@ -400,52 +421,70 @@ export default function Contact() {
                   </div>
                 </div>
 
-                <div style={{ marginBottom: 14 }}>
-                  <label style={labelStyle}>Email Address</label>
-                  <input
-                    name="email"
-                    value={form.email}
-                    onChange={handle}
-                    placeholder="rahul@example.com"
-                    style={inputStyle}
-                  />
+                <div
+                  style={{
+                    display: "grid",
+                    gridTemplateColumns: "1fr 1fr",
+                    gap: 12,
+                    marginBottom: 12,
+                  }}
+                >
+                  <div>
+                    <label style={labelStyle}>Email Address</label>
+                    <input
+                      name="email"
+                      value={form.email}
+                      onChange={handle}
+                      placeholder="rahul@example.com"
+                      style={inputStyle}
+                    />
+                  </div>
+
+                  <div>
+                    <label style={labelStyle}>I need help with</label>
+                    <select
+                      name="subject"
+                      value={form.subject}
+                      onChange={handle}
+                      style={inputStyle}
+                    >
+                      {[
+                        "Home Loan",
+                        "Personal Loan",
+                        "Business Loan",
+                        "Car Loan",
+                        "EMI Calculator",
+                        "Property Search",
+                        "Other",
+                      ].map((o) => (
+                        <option key={o}>{o}</option>
+                      ))}
+                    </select>
+                  </div>
                 </div>
 
-                <div style={{ marginBottom: 14 }}>
-                  <label style={labelStyle}>I need help with</label>
-                  <select
-                    name="subject"
-                    value={form.subject}
-                    onChange={handle}
-                    style={inputStyle}
-                  >
-                    {[
-                      "Home Loan",
-                      "Personal Loan",
-                      "Business Loan",
-                      "Car Loan",
-                      "EMI Calculator",
-                      "Property Search",
-                      "Other",
-                    ].map((o) => (
-                      <option key={o}>{o}</option>
-                    ))}
-                  </select>
-                </div>
-
-                <div style={{ marginBottom: 22 }}>
+                <div
+                  style={{
+                    marginBottom: 14,
+                    flex: 1,
+                    minHeight: 0,
+                    display: "flex",
+                    flexDirection: "column",
+                  }}
+                >
                   <label style={labelStyle}>Message</label>
                   <textarea
                     name="message"
                     value={form.message}
                     onChange={handle}
                     placeholder="Tell us how we can help you..."
-                    rows={4}
                     style={{
                       ...inputStyle,
+                      flex: 1,
                       height: "auto",
-                      padding: "12px 14px",
-                      resize: "vertical",
+                      minHeight: 48,
+                      padding: "10px 12px",
+                      resize: "none",
                     }}
                   />
                 </div>
@@ -454,13 +493,12 @@ export default function Contact() {
                   onClick={submit}
                   style={{
                     width: "100%",
-                    height: 50,
-                    background:
-                      "linear-gradient(135deg,#f97316,#eab308)",
+                    height: 44,
+                    background: "linear-gradient(135deg,#f97316,#eab308)",
                     color: "white",
                     border: "none",
                     borderRadius: 10,
-                    fontSize: 15,
+                    fontSize: 14,
                     fontWeight: 600,
                     cursor: "pointer",
                     fontFamily: "'DM Sans',sans-serif",
@@ -469,17 +507,19 @@ export default function Contact() {
                     alignItems: "center",
                     justifyContent: "center",
                     gap: 8,
+                    flexShrink: 0,
                   }}
                 >
-                  Send Message <Send size={16} />
+                  Send Message <Send size={15} />
                 </button>
 
                 <p
                   style={{
                     textAlign: "center",
-                    fontSize: 12,
+                    fontSize: 11,
                     color: "#78716c",
-                    marginTop: 12,
+                    margin: "8px 0 0",
+                    flexShrink: 0,
                   }}
                 >
                   Your information is secure and will never be shared.
@@ -493,16 +533,26 @@ export default function Contact() {
       {/* Responsive */}
       <style>
         {`
-          @media (max-width: 768px) {
-            div[style*="padding: 60px 32px"] {
-              padding: 60px 16px !important;
-            }
-
-            div[style*="grid-template-columns: 1fr 1.4fr"] {
+          @media (max-width: 900px) {
+            .contact-grid {
               grid-template-columns: 1fr !important;
+              height: auto !important;
             }
+          }
 
-            div[style*="grid-template-columns: 1fr 1fr"] {
+          @media (max-width: 900px) {
+            div[style*="height: 100vh"] {
+              height: auto !important;
+              min-height: 100vh;
+              overflow: visible !important;
+            }
+            .contact-body {
+              overflow: visible !important;
+            }
+          }
+
+          @media (max-width: 640px) {
+            .contact-grid > div:first-child > div:nth-child(2) {
               grid-template-columns: 1fr !important;
             }
           }
@@ -514,8 +564,8 @@ export default function Contact() {
 
 const labelStyle = {
   display: "block",
-  fontSize: 12.5,
+  fontSize: 11,
   fontWeight: 500,
   color: "#374151",
-  marginBottom: 5,
+  marginBottom: 4,
 };

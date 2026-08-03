@@ -229,7 +229,7 @@ export default function UniversalCalculator() {
     }}>
       {/* Hero Section */}
       <div style={{ 
-        padding: "0 64px", 
+        padding: "0 32px", 
         textAlign: "center", 
         marginBottom: "60px" 
       }}>
@@ -259,7 +259,7 @@ export default function UniversalCalculator() {
 
       {/* Calculator Type Selector */}
       <div style={{ 
-        padding: "0 64px", 
+        padding: "0 32px", 
         marginBottom: "40px",
         display: "flex",
         gap: "20px",
@@ -331,7 +331,7 @@ export default function UniversalCalculator() {
 
       {/* Calculator Form */}
       <div style={{ 
-        padding: "0 64px", 
+        padding: "0 32px", 
         display: "grid", 
         gridTemplateColumns: "1fr 1fr", 
         gap: "50px", 
@@ -1002,7 +1002,7 @@ export default function UniversalCalculator() {
       {/* Amortization Table */}
       {amortizationTable.length > 0 && (
         <div style={{ 
-          padding: "0 64px", 
+          padding: "0 32px", 
           marginBottom: "60px" 
         }}>
           <h3 style={{ 
@@ -1055,7 +1055,7 @@ export default function UniversalCalculator() {
 
       {/* Bank Offers Section */}
       <div style={{ 
-        padding: "0 64px", 
+        padding: "0 32px", 
         marginBottom: "60px" 
       }}>
         <h3 style={{ 
@@ -1119,7 +1119,7 @@ export default function UniversalCalculator() {
 
       {/* FAQ Section */}
       <div style={{ 
-        padding: "0 64px", 
+        padding: "0 32px", 
         marginBottom: "60px" 
       }}>
         <h3 style={{ 
@@ -1173,7 +1173,7 @@ export default function UniversalCalculator() {
 
       {/* Info Section */}
       <div style={{ 
-        padding: "0 64px", 
+        padding: "0 32px", 
         marginBottom: "60px" 
       }}>
         <div style={{ 
@@ -1235,9 +1235,10 @@ export default function UniversalCalculator() {
           }
         }
         
-        @media (max-width: 480px) {
+        @media (max-width: 768px) {
           section {
-            padding: 40px 16px !important;
+            padding-left: 16px !important;
+            padding-right: 16px !important;
           }
           
           .calc-wrapper {

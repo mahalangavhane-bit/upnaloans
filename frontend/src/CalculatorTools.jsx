@@ -43,10 +43,6 @@ export default function CalculatorTools() {
   return (
     <section className="section tools-section">
       <div className="section-inner">
-        <div className="section-label">
-          <Calculator size={16} />
-          Financial Calculators
-        </div>
         <h2 className="section-title">Plan Smart with Our Calculators</h2>
         <p className="section-sub">Easy-to-use EMI, eligibility and investment calculators for smarter financial decisions.</p>
         <div className="tools-grid">

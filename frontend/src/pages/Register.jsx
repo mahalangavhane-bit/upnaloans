@@ -39,7 +39,7 @@ export default function Register() {
         transition: "border-color .2s"
     };
     return (
-        <div style={{ minHeight:"80vh", padding: "60px 32px", maxWidth: 480, margin: "0 auto"}}>
+        <div className="page-container-h" style={{ minHeight:"80vh", padding: "60px 32px", maxWidth: 480, margin: "0 auto"}}>
             <h1 style={{ fontFamily: "'Sora', sans-serif", fontSize: 28, marginBottom: 24}}>Register</h1>
             {message && <div style={{ marginBottom: 16, color:"green" }}>{message}</div>}
             <form onSubmit={submit} style={{ display:"flex", flexDirection:"column", gap:14 }}>

@@ -1,0 +1,260 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap");
+
+:root {
+  --acp-purple: #7c3aed;
+  --acp-purple-light: #ede9fe;
+  --acp-black: #0f172a;
+  --acp-gray-text: #64748b;
+  --acp-card-text: #1e293b;
+  --acp-border: #eef0f4;
+  --acp-white: #ffffff;
+  --acp-max-width: 1440px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.acp {
+  position: relative;
+  font-family: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  width: 100%;
+  overflow: hidden;
+  background-color: var(--acp-white);
+  padding: 72px 32px;
+}
+
+/* ============ DECORATIVE BLOBS ============ */
+.acp-blob {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(124, 58, 237, 0.25) 0%,
+    rgba(124, 58, 237, 0.05) 70%
+  );
+  filter: blur(6px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.acp-blob-top {
+  width: 90px;
+  height: 90px;
+  top: 68px;
+  left: calc(50% - 620px);
+}
+
+.acp-blob-bottom {
+  width: 70px;
+  height: 70px;
+  bottom: 130px;
+  left: calc(50% - 700px);
+}
+
+/* ============ LAYOUT ============ */
+.acp-container {
+  position: relative;
+  z-index: 1;
+  max-width: var(--acp-max-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 0.62fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+/* ============ LEFT: IMAGE ============ */
+.acp-image-col {
+  display: flex;
+  justify-content: center;
+}
+
+.acp-image-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.12);
+}
+
+.acp-image {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.acp-image-wrapper:hover .acp-image {
+  transform: scale(1.04);
+}
+
+/* ============ RIGHT: CONTENT ============ */
+.acp-content-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.acp-heading {
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--acp-black);
+  margin: 0 0 16px;
+  letter-spacing: -0.3px;
+}
+
+.acp-heading-accent {
+  color: var(--acp-purple);
+  font-weight: 800;
+}
+
+.acp-description {
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: var(--acp-gray-text);
+  margin: 0 0 24px;
+  max-width: 520px;
+}
+
+/* ============ TABS ============ */
+.acp-tabs {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.acp-tab {
+  font-family: inherit;
+  font-size: 13.5px;
+  font-weight: 700;
+  padding: 12px 22px;
+  border-radius: 999px;
+  border: 1.5px solid #e5e7eb;
+  background-color: var(--acp-white);
+  color: #374151;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.acp-tab:hover {
+  border-color: var(--acp-purple);
+  color: var(--acp-purple);
+}
+
+.acp-tab-active,
+.acp-tab-active:hover {
+  background-color: var(--acp-purple);
+  border-color: var(--acp-purple);
+  color: var(--acp-white);
+  box-shadow: 0 8px 16px rgba(124, 58, 237, 0.28);
+}
+
+/* ============ BENEFIT CARDS ============ */
+.acp-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.acp-card {
+  background-color: var(--acp-white);
+  border: 1px solid var(--acp-border);
+  border-radius: 12px;
+  padding: 18px 24px;
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04);
+  transition: transform 0.25s ease, box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.acp-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px rgba(124, 58, 237, 0.12);
+  border-color: var(--acp-purple-light);
+}
+
+.acp-card-text {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--acp-card-text);
+  line-height: 1.5;
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 1024px) {
+  .acp-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .acp-image-col {
+    order: 1;
+  }
+
+  .acp-content-col {
+    order: 2;
+  }
+
+  .acp-image-wrapper {
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .acp-blob-top {
+    left: calc(50% - 260px);
+    top: 20px;
+  }
+
+  .acp-blob-bottom {
+    left: calc(50% - 300px);
+    bottom: 60px;
+  }
+}
+
+@media (max-width: 768px) {
+  .acp {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+@media (max-width: 640px) {
+  .acp {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+
+  .acp-heading {
+    font-size: 24px;
+  }
+
+  .acp-description {
+    font-size: 14.5px;
+  }
+
+  .acp-image {
+    height: 300px;
+  }
+
+  .acp-tab {
+    font-size: 12.5px;
+    padding: 10px 16px;
+  }
+
+  .acp-card {
+    padding: 14px 18px;
+  }
+
+  .acp-card-text {
+    font-size: 14px;
+  }
+
+  .acp-blob {
+    display: none;
+  }
+}

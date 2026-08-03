@@ -65,11 +65,6 @@ function HeroForm() {
       <button className="btn-hero">
         Check Eligibility & Compare Rates →
       </button>
-
-      <p className="form-note">
-        <CheckCircle size={12} /> Free check &nbsp;•&nbsp;
-        <Lock size={12} /> No credit score impact
-      </p>
     </div>
   );
 }
@@ -82,10 +77,6 @@ export default function Hero() {
 
           {/* LEFT CONTENT */}
           <div className="hero-left">
-            <div className="hero-tag">
-              <Shield size={14} />
-              <span>India's #1 Loan Comparison Platform</span>
-            </div>
 
             <h1>
               Get the <span>Best Loan</span><br />
@@ -96,39 +87,6 @@ export default function Hero() {
               Compare 50+ banks and NBFCs. Check eligibility instantly.
               Get approved in 24 hours — fully online, zero documentation hassle.
             </p>
-
-            <div className="trust-badges">
-              {[
-                {
-                  bg: "#f0fdf4",
-                  color: "#16a34a",
-                  icon: <CheckCircle size={14} />,
-                  text: "Zero Hidden Charges",
-                },
-                {
-                  bg: "#fff7ed",
-                  color: "#c2410c",
-                  icon: <Lock size={14} />,
-                  text: "100% Secure",
-                },
-                {
-                  bg: "#fefce8",
-                  color: "#92400e",
-                  icon: <Zap size={14} />,
-                  text: "Instant Approval",
-                },
-              ].map((b) => (
-                <div className="trust-badge" key={b.text}>
-                  <div
-                    className="trust-icon"
-                    style={{ background: b.bg, color: b.color }}
-                  >
-                    {b.icon}
-                  </div>
-                  {b.text}
-                </div>
-              ))}
-            </div>
           </div>
 
           {/* RIGHT FORM */}

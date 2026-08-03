@@ -36,10 +36,6 @@ export default function WhyChooseUs() {
   return (
     <section className="section why-section">
       <div className="section-inner">
-        <div className="section-label">
-          <TrendingUp size={16} />
-          Why UpnaLoans
-        </div>
         <h2 className="section-title">Built for Your Financial Journey</h2>
         <p className="section-sub">Technology, transparency and trust — to get you the best deal every time.</p>
         <div className="why-grid">

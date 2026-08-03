@@ -26,10 +26,10 @@ export default function Navbar() {
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
-        padding: "0 40px",
-        height: 80,
+        padding: "0 32px",
+        height: 65,
         maxWidth: "100%",
-      }}>
+      }} className="nav-top-bar page-container-h">
         {/* Logo */}
         <Link to="/" style={{ display: "flex", alignItems: "center", textDecoration: "none" }}>
           <img
@@ -59,7 +59,7 @@ export default function Navbar() {
                 color: "white",
                 cursor: "pointer",
                 textDecoration: "none",
-                fontFamily: "'Sora', sans-serif"
+                fontFamily: "'DM Sans', sans-serif"
               }}
               >
                 {link.label}
@@ -84,7 +84,7 @@ export default function Navbar() {
               fontSize: 13.5,
               fontWeight: 700,
               cursor: "pointer",
-              fontFamily: "'Sora', sans-serif",
+              fontFamily: "'DM Sans', sans-serif",
               letterSpacing: ".3px",
               boxShadow: "0 4px 14px rgba(249,115,22,0.35)",
               transition: "transform .15s, box-shadow .15s"
@@ -116,7 +116,7 @@ export default function Navbar() {
           padding: "16px 32px 20px",
           borderTop: "1px solid #f3f4f6",
           display: "flex", flexDirection: "column", gap: 16
-        }}>
+        }} className="page-container-h">
           {navLinks.map(link => (
             <span key={link.label}
             onClick={() => {
@@ -131,7 +131,7 @@ export default function Navbar() {
               fontWeight: 600,
               color: "white",
               cursor: "pointer",
-              fontFamily: "'Sora', sans-serif"
+              fontFamily: "'DM Sans', sans-serif"
             }}
             >
               {link.label}
@@ -142,7 +142,7 @@ export default function Navbar() {
 
       {/* Marquee ticker */}
       <div style={{
-        background: "linear-gradient(90deg, #1a0a00 0%, #2d1200 50%, #1a0a00 100%)",
+        background: "rgba(0, 0, 0, 0.6)",
         color: "rgba(255,255,255,0.8)",
         fontSize: 12.5,
         padding: "7px 0",
@@ -150,10 +150,10 @@ export default function Navbar() {
         whiteSpace: "nowrap"
       }}>
        <span style={{ display: "inline-block", animation: "ticker 28s linear infinite" }}>
-  ✨ Looking after your interests • Quick and Easy Loans • Upna Loan &nbsp;&nbsp;&nbsp;&nbsp;
-  ✨ Looking after your interests • Quick and Easy Loans • Upna Loan &nbsp;&nbsp;&nbsp;&nbsp;
-  ✨ Looking after your interests • Quick and Easy Loans • Upna Loan &nbsp;&nbsp;&nbsp;&nbsp;
-</span>
+        Looking after your interests • Quick and Easy Loans • Upna Loan &nbsp;&nbsp;&nbsp;&nbsp;
+        Looking after your interests • Quick and Easy Loans • Upna Loan &nbsp;&nbsp;&nbsp;&nbsp;
+        Looking after your interests • Quick and Easy Loans • Upna Loan &nbsp;&nbsp;&nbsp;&nbsp;
+      </span>
       </div>
 
       <style>{`

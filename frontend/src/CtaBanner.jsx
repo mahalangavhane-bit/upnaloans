@@ -100,13 +100,6 @@ export default function CtaBanner() {
           background: rgba(255,255,255,0.1);
         }
 
-        /* Tablet */
-        @media (max-width: 1024px) {
-          .cta-inner {
-            padding: 50px 24px;
-          }
-        }
-
         /* Mobile */
         @media (max-width: 768px) {
           .cta-banner {
