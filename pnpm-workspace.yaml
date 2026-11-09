@@ -2,6 +2,7 @@ packages:
   - "apps/*"
   - "packages/*"
   - "backend"
+  - "frontend"
 allowBuilds:
   '@prisma/engines': true
   bcrypt: true
